@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("cheese_zone")
+define config.name = _("Wizzcon (working title)")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "cheese_zone"
+define build.name = "Wizzcon"
 
 
 ## Sounds and music ############################################################
@@ -119,6 +119,9 @@ define config.window_hide_transition = Dissolve(.2)
 
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
+
+
+#Do we want scrolling text or instant?
 
 default preferences.text_cps = 0
 
