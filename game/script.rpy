@@ -64,6 +64,8 @@ label dialogue1:
 
     a "Finally, the {color=#946bc9}Artifacts Expo{/color} has magical items from all over the world on display! {w}Some of the things in there really give me the creeps..."
 
+    jump where_to_go
+
 label dialogue2:
 
     a "Oh, do you have a partner to compete with?"
