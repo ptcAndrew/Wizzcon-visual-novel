@@ -88,6 +88,8 @@ label where_to_go:
 
     "{i}I guess I better start checking this place out...{/i}"
 
+    show brochure with moveinbottom
+
     menu:
 
         "{i}Where should I go first...{/i}"
