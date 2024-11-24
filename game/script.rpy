@@ -3,8 +3,23 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define a = Character("Attendant", color="#3a6ad3")
 
+image attendant:
+    zoom 0.7
+    ypos 1.3
+    "attendant.png"
+
+image attendant positive:
+    zoom 0.7
+    ypos 1.3
+    "attendant positive.png"
+
+image attendant negative:
+    zoom 0.7
+    ypos 1.3
+    "attendant negative.png"
+
+define a = Character("Attendant", color="#3a6ad3", image="attendant")
 
 init -1 python:
     #global values for the friendship with each character
@@ -39,7 +54,7 @@ label inside:
 
     "Feeling overwhelmed, you notice a kiosk stacked with brochures reading \"Wizzcon Directory\". {w}That'll be helpful."
 
-    show placeholder with dissolve
+    show attendant with dissolve
 
     a "Greetings, welcome to WizzCon! Is there anything I can help you with?"
 
@@ -70,7 +85,7 @@ label dialogue2:
 
     a "Oh, do you have a partner to compete with?"
 
-    a "..."
+    a @ negative "..."
 
     a "Well, the (WIZARD BATTLE) has always been a doubles event... {w}but I'm sure you can find someone looking to join you!"
 
@@ -84,9 +99,9 @@ label dialogue2:
 
 label where_to_go:
 
-    a "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
+    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
 
-    hide placeholder with dissolve
+    hide attendant with dissolve
 
     "{i}I guess I better start checking this place out...{/i}"
 
