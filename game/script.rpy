@@ -18,7 +18,7 @@ image attendant negative:
     ypos 1.3
     "attendant negative.png"
 
-image maudlin neutral:
+image maudlin:
     zoom 0.7
     ypos 1.3
     "maudlin neutral.png"
