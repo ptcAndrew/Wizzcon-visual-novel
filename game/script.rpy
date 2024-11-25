@@ -3,7 +3,6 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-
 image attendant:
     zoom 0.7
     ypos 1.3
@@ -19,7 +18,55 @@ image attendant negative:
     ypos 1.3
     "attendant negative.png"
 
+image maudlin neutral:
+    zoom 0.7
+    ypos 1.3
+    "maudlin neutral.png"
+
+image maudlin positive:
+    zoom 0.7
+    ypos 1.3
+    "maudlin positive.png"
+
+image maudlin negative:
+    zoom 0.7
+    ypos 1.3
+    "maudlin negative.png"
+
+image shade:
+    zoom 0.7
+    ypos 1.3
+    "shade neutral.png"
+
+image shade positive:
+    zoom 0.7
+    ypos 1.3
+    "shade positive.png"
+
+image shade negative:
+    zoom 0.7
+    ypos 1.3
+    "shade negative.png"
+
+image millicent:
+    zoom 0.7
+    ypos 1.3
+    "millicent neutral.png"
+
+image millicent positive:
+    zoom 0.7
+    ypos 1.3
+    "millicent positive.png"
+
+image millicent negative:
+    zoom 0.7
+    ypos 1.3
+    "millicent negative.png"
+
 define a = Character("Attendant", color="#3a6ad3", image="attendant")
+define maudlin = Character("Maudlin Thistlewood", color="#34eb77", image="maudlin")
+define shade = Character("Shadé Ravenstar", color="#6b357c", image="shade")
+define millicent = Character("Millicent Smolders", color="#810e06", image="millicent")
 
 init -1 python:
     #global values for the friendship with each character
