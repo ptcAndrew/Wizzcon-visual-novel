@@ -3,6 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+# Images
 image attendant:
     zoom 0.7
     ypos 1.3
@@ -63,10 +64,20 @@ image millicent negative:
     ypos 1.3
     "millicent negative.png"
 
+# Transform
+transform resetzoom:
+    zoom 1.0
+    ypos 1.3
+
+# Character definitions
 define a = Character("Attendant", color="#3a6ad3", image="attendant")
 define maudlin = Character("Maudlin Thistlewood", color="#34eb77", image="maudlin")
 define shade = Character("Shadé Ravenstar", color="#6b357c", image="shade")
 define millicent = Character("Millicent Smolders", color="#810e06", image="millicent")
+
+# Audio definitions
+define audio.bg_noise = "audio/convention_ambience.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/amber2023-30599665/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Amber</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Pixabay</a>
+define audio.milli_whoosh = "audio/fireball_whoosh.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=179125">floraphonic</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=179125">Pixabay</a>
 
 init -1 python:
     #global values for the friendship with each character
@@ -94,6 +105,8 @@ label start:
   
 
 label inside:
+
+    play sound bg_noise volume 0.3 loop # adjust volume as needed
 
     scene bg inside with dissolve
 
@@ -159,15 +172,15 @@ label where_to_go:
         "{i}Where should I go first...{/i}"
 
         "{color=#00b347}Petting Zoo{/color}":
-
+            hide brochure
             jump petting_zoo
 
         "{color=#db4c04}Casting Ground{/color}":
-
+            hide brochure
             jump casting_ground
 
         "{color=#946bc9}Artifacts Expo{/color}":
-
+            hide brochure
             jump artifacts
 
 
@@ -177,6 +190,55 @@ label petting_zoo:
 
 label casting_ground:
 
+    scene placeholder
+
+    "You are curious what the Casting Grounds have to offer this year, so you head that way to check it out."
+
+    "You've always thought of this place as a playground for the more energetically inclined wizards, the ones that love showing off in various flashy ways where they can incur structural damage without getting insurance involved."
+
+    "This is where you'll find all the Evocation Wizards, the ones that love playing around with the elements. Ice Wizards, Water Wizards, Air Wizards, Dirt Wizards, Fire Wizards, so many wizards . . . "
+
+    "If you're not careful, you might catch a fireball to the face."
+
+    "Of course, OSHA regulations are followed and everyone has an invisible shield around them protecting them from {i}serious{/i} damage,{w} but you're not sure if those shields will hold up against {color=#810e06}one particularly enthusiastic Dragonborn{/color} that seems hellbent on watching the world burn."
+    
+    "You join the handful of observers in her vicinity, mildly curious. She has decimated her opponent with her fire casting, and you watch him dejectedly slink off into the shadows...{p}Which is why you don't notice her scanning the crowd."
+
+    play audio milli_whoosh volume 0.8
+    show millicent negative
+    with moveinright
+    
+    with vpunch
+    millicent "You!"
+
+    "She points her clawed hand at you."
+
+    show millicent negative:
+        zoom 1.8
+        ypos 2.0
+    millicent "Yes, you!"
+    
+    millicent "Face me, the great Millicent Smolders!"
+
+    menu millicent_challenge:
+        "Vehemently shake your head no.":
+            $ f_smolders -= 1
+            jump no_millicent_challenge
+
+        "Gracefully accept.":
+            $ f_smolders += 1
+            jump accept_millicent_challenge
+
+label no_millicent_challenge:
+
+    show millicent negative at resetzoom
+    "Swag!"
+    return
+
+label accept_millicent_challenge:
+
+    show millicent negative at resetzoom
+    "YOLO! xD"
     return
 
 label artifacts:
