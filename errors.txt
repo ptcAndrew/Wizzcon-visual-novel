@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 71: expected 'simple_expression' not found.
-    ease
-        ^
+File "game/script.rpy", line 404: Menu does not contain any choices.
+    menu:
+         ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Wed Nov 27 01:06:46 2024
+Wed Nov 27 13:04:42 2024

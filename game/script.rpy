@@ -50,13 +50,13 @@ image shade negative:
     "shade negative.png"
 
 image millicent:
-    zoom 0.7
-    ypos 1.3
+    zoom 0.4
+    ypos 1.0
     "millicent neutral.png"
 
 image millicent positive:
-    zoom 0.7
-    ypos 1.3
+    zoom 0.4
+    ypos 1.0
     "millicent positive.png"
 
 image millicent negative:
@@ -64,10 +64,19 @@ image millicent negative:
     ypos 1.3
     "millicent negative.png"
 
-# Transform
+image white = "#FFFFFF"
+
+# Transform/transitions
 transform resetzoom:
     zoom 1.0
-    ypos 1.3
+
+transform slow_moveinbottom(duration=5.0):
+    ypos 1.5  # Start from below the screen (adjust based on your layout)
+    linear duration ypos 1.0  # Move to the final position over `duration` seconds
+
+define flash = Fade(.25, 0.0, .75, color="#fff")
+
+define move_quick = MoveTransition(0.2)
 
 # Character definitions
 define a = Character("Attendant", color="#3a6ad3", image="attendant")
@@ -78,7 +87,9 @@ define millicent = Character("Millicent Smolders", color="#810e06", image="milli
 # Audio definitions
 define audio.bg_noise = "audio/convention_ambience.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/amber2023-30599665/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Amber</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Pixabay</a>
 define audio.milli_whoosh = "audio/fireball_whoosh.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=179125">floraphonic</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=179125">Pixabay</a>
-
+define audio.sparkle = "audio/sparkling_star.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=99656">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=99656">Pixabay</a>
+define audio.punch = "audio/punch.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=41105">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=41105">Pixabay</a>
+define audio.boom = "audio/boom.mp3"  # No credits needed ;)
 init -1 python:
     #global values for the friendship with each character
 
@@ -200,7 +211,9 @@ label casting_ground:
 
     "If you're not careful, you might catch a fireball to the face."
 
-    "Of course, OSHA regulations are followed and everyone has an invisible shield around them protecting them from {i}serious{/i} damage,{w} but you're not sure if those shields will hold up against {color=#810e06}one particularly enthusiastic Dragonborn{/color} that seems hellbent on watching the world burn."
+    "Of course, OSHA regulations are followed and everyone has an invisible shield around them protecting them from {i}serious{/i} damage,"
+    
+    "But you're not sure if those shields will hold up against {color=#810e06}one particularly enthusiastic Dragonborn{/color} that seems hellbent on watching the world burn."
     
     "You join the handful of observers in her vicinity, mildly curious. She has decimated her opponent with her fire casting, and you watch him dejectedly slink off into the shadows...{p}Which is why you don't notice her scanning the crowd."
 
@@ -232,13 +245,168 @@ label casting_ground:
 label no_millicent_challenge:
 
     show millicent negative at resetzoom
-    "Swag!"
-    return
+    millicent "Coward."
+    
+    menu:
+        "Respectfully, my lady, I do not wish to end up crispy.":
+            millicent "Accept the challenge, coward."
+    
+    "The handful of onlookers collectively ooooh, with one of them remarking, \“{i}You gonna let that stand?{/i}\”"
+
+    "Crumbling under the Weight of peer pressure, you hesitantly take up her challenge."
+
+    jump millicent_scene_2
 
 label accept_millicent_challenge:
 
-    show millicent negative at resetzoom
-    "YOLO! xD"
+    show millicent at resetzoom
+    "The onlookers all collectively ooooh, and Millicent assesses you with an approving nod."
+
+    millicent "Prepare yourself, wizard! Let us see what you are made of."
+    
+    jump millicent_scene_2
+
+label millicent_scene_2:
+    play audio milli_whoosh volume 0.8
+    show millicent negative at resetzoom:  # For some reason if these 2 lines arent included she flies in from the top of the screen
+        ypos 1.3
+    show millicent negative with move_quick:
+        xpos 0.9
+        ypos 1.3
+    with vpunch
+
+    "She wastes no time, charging up and letting loose a fearsome fireball aimed straight at you."
+
+    "You expertly sidestep to the left. The fireball hits a dummy instead, way off in the distance."
+
+    millicent "You are a clever one."
+
+    menu:
+        "{i}That wasn't particularly hard...{/i}":
+            millicent "I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
+
+        "There's more to me than my good looks, you know.":
+            millicent "We shall see about that! I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
+    
+    menu:
+        "That's disgusting!":
+            $ f_smolders -= 1
+            millicent "You are but a weakling. Your bloodline will die with you."
+
+            menu:
+                "She may have a point. It didn't exactly work out with my last girlfriend...":
+                    jump millicent_scene_3
+                
+                "Your words may hurt my feelings but your spells won't ever touch me!":
+                    jump millicent_scene_3
+        
+        "Let's actually not do that, I like my guts where they belong.":
+            # Neutral, no change to f score
+            jump millicent_scene_3
+        
+        "Bold of you to assume {i}you{/i} won't be the one skinned alive!":
+            $ f_smolders += 1
+            show millicent:
+                ypos 1.0
+            millicent "HA! Let's see you try!"
+            
+            show millicent negative:
+                ypos 1.3
+            millicent "You will fall like all the rest. You have neither the strength nor the wit to stand against me."
+
+            menu:
+                "You called me clever. So if you keep fighting like you have been, I will continue to outsmart you!":
+                    jump millicent_scene_3
+
+label millicent_scene_3:
+
+    play audio milli_whoosh volume 0.8
+    show millicent negative at resetzoom:  # For some reason if these 2 lines arent included she flies in from the top of the screen
+        ypos 1.3
+    show millicent negative with move_quick:
+        xpos 0.2
+        ypos 1.3
+    with vpunch
+    
+    millicent "It does not matter what you say.{w} Your doom is inevitable.{w} I will concave your head.{w} I shall fashion your corpse into an armchair.{w} I will sear you from existence so thoroughly not even ash will remain!"
+
+    menu:
+        "Would you not rather save this sort of vehemence for the Wizzowski Wizarding Open?":
+            millicent "There is enough rage within me to do both!"
+    
+    play audio sparkle volume 0.7
+    scene white with dissolve
+    "She casts Sneaky Sparks Attack and you are momentarily disoriented by all the sudden, small, bright fireballs assaulting your vision."
+
+    scene placeholder with dissolve
+    show millicent negative with dissolve
+    "It lasts but a second, but as your vision fades back in, so does her fist straight to your nose."
+    
+    menu:
+        "Few Wizards abandon their spells in favour of an old fashioned fistfight . . . ":
+            play audio punch
+            with vpunch
+            "You fall flat on your ass, crying out."
+    
+    millicent "With my mighty fists I shall beat you bloody!"
+
+    "She follows you down and it turns into a grappling contest that you, a human, are ill equipped to win against a Dragonborn. She’s got her tail wrapped around your ankle and her tops of her wings pin you to the ground. You attempt to squirm out but she's got a solid hold on you."
+
+    "Feeling trapped and panicky, you rummage through your brain for a spell but only one springs to mind,{w} and it's the worst one you know."
+
+    "Definitely overkill for a {i}\"friendly\"{/i} Wozard fight, but the light is fading..."
+
+    
+    hide millicent with flash
+    play audio boom
+    with vpunch
+    "You cast <SPELLNAME>!"
+
+    menu:
+        "{i}*cough* *cough*{/i}":
+            "Millicent is a couple feet away, slowly and painfully prying all her various limbs off the floor. You yourself managed to survive unscathed."
+
+        "That was awful.":
+            "Millicent is a couple feet away, slowly and painfully prying all her various limbs off the floor. You yourself managed to survive unscathed."
+    
+    menu:
+        "We've both had enough. Let's call it a tie and end it here.":
+            $ f_smolders -= 1
+        
+        "Your defeat has been a long time coming and I'm glad I could deliver it to you.":
+            $ f_smolders += 1
+    
+    "But she weakly struggles to her feet. A couple emotions pass across her face–confusion, despair, rage–and finally settles on resignation. But she seems ready to continue the fight."
+
+    show millicent negative with moveinbottom
+    millicent "The battle is not over yet, wizard."
+
+    menu:
+        "{i}Does she ever give up?{/i}":
+            menu:
+                "Save your strength and sign up for the Wizarding Open tomorrow. With you as my partner, we have a chance to win it.":
+                    millicent ". . ."
+    
+    show millicent positive
+    millicent "You have been a worthy opponent. I shall consider it."
+
+    show millicent
+    menu:
+        "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?":
+            show millicent negative
+            if f_smolders == 3:
+                millicent "A long list of injustices."
+            else:
+                millicent "An even {b}hotter{/b} rage."
+    
+    show millicent
+    menu:
+        "... Fair enough.":
+            menu:
+                "You'll be able to find me at the Rummaging Rat at Summoning Hour tomorrow.":
+                    "You don't wait for her response before turning around and walking away."
+    
+    scene black with dissolve
     return
 
 label artifacts:
