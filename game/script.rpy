@@ -177,6 +177,9 @@ label dialogue2:
     jump where_to_go
 
 label where_to_go:
+#TODO:
+#add conditionals for already visiting the locations
+
 
     a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
 
@@ -415,7 +418,7 @@ label millicent_scene_3:
     
     m "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?"
     show millicent negative
-    if f_smolders == 3:
+    if f_smolders >= 2:
         millicent "A long list of injustices."
     else:
         millicent "An even {b}hotter{/b} rage."
@@ -427,7 +430,7 @@ label millicent_scene_3:
     "You don't wait for her response before turning around and walking away."
     
     scene black with dissolve
-    return
+    jump where_to_go
 
 label artifacts:
 
@@ -449,6 +452,208 @@ label artifacts:
 
     "Intrigued, you approach the Necromancy booth."
 
+
+
+    m "You should really be more careful with how you handle those sorts of transactions."
+
+    "The vendor looks at you, deadpan and unimpressed. Their name tag reads {color=#6b357c}\"Shade Ravenstar\".{/color}"
+
+    shade "I don't know what you're talking about."
+
+    m "That was an Orb of Reanimate One Dead Dude. You sold one of those to that guy. You can't lie to me."
+
+    shade "I really don't know what you're talking about about. Did you just come from Wizard Dick's booth of Seeing Things?"
+
+    "{i}What a frustrating being.{/i}"
+
+    m "No, haven't had the pleasure yet. But I think you should go check out The Booth of How To Tell Better Lies."
+
+    shade "..."
+
+    m "..."
+
+    shade "What do you want?"
+
+    "Now that you're asked the question, you're not sure how to answer it. "
+
+    menu:
+        
+        "I should report you to the authorities.":
+            $ f_ravenstar -= 1
+            shade "..."
+            m "What you're doing...that's illegal. "
+            "Shadé rolls their eyes."
+            m "I’m serious! Necromancy can be an abhorrent school of magic and there’s a reason everyone needs to follow the rules around necromantic magical artifacts!"
+            jump shade_scene2
+
+        "What else you got?":
+            $ f_ravenstar += 1
+            shade "..."
+
+            m "You seem super cool and everything, and I wanna win tomorrow's Wizzowski Wizarding Open. {p}If you've got something that can give me an edge in it, that'd be, you know, cool."
+
+            shade "Hm."
+
+            "Shade gives you a long look. You do not squirm. {w}You don’t."
+
+            shade "Okay, let's say I {i}did{/i} have an Orb of Reanimate One Dead Dude–"
+
+            m "You do."
+
+            shade "Hypothetically. Let's say I did have one. What's a pretty thing like you gonna do with an item like that?"
+
+            menu:
+                "Use it to win tomorrow’s Wizarding Open, obviously!":
+                    shade "The Orb brings back one conscious being. One {i}dead{/i} conscious being. How does that help you?"
+
+                    m "Uhh..."
+
+                    "You realise that, despite the competition being a battle, there won't be any corpses. No one dies at these things.{p}At least, not usually."
+
+                    m "I'm not sure yet."
+
+                    jump shade_scene2
+                "Keep it as a souvenir of having attended Wizzcon 350.":
+                    $ f_ravenstar -= 1
+                "Resurrect my loved and dearly missed pet rat.":
+                    $ f_ravenstar += 1
+                    "They take a moment to think about your answer."
+
+                    shade "I'm sympathetic to that. But you need the other, more legal, Orb of Reanimate My Dead Pet for that. The Orb of Reanimate One Dead Dude is for conscious beings."
+
+                    m "Yeah... {w}right!"
+                    "{i}How did I get that so mixed up? It's literally in the name.{/i}"
+                    m "Would you happen to have any of those?"
+                    shade "Plenty."
+                    "They rummage around in a box and pull out a similar looking orb to the illegal one."
+
+                    m "Right. {w}Um. {w}How do I use it?"
+                    jump shade_scene2
+
+                
+label shade_scene2:
+
+    shade "..."
+    shade "How much do you actually know about the School of Necromancy?"
+
+    menu:
+        "Admit it's very little.":
+            $ f_ravenstar -= 1
+            m "Not very much. It's not my area of expertise and I don't have much of an interest in it, to be honest."
+
+            "Shadé seems a little let down."
+
+            shade "Then how can you tell that what I have is illegal? Do you know what you’re getting yourself into?"
+
+            m "I’ve read all about it in the Histories of Magic Schools for Dummies."
+            shade "..."
+            shade "Well...{w}You did say you know very little about it all. You did."
+
+        
+        "Lie.":
+            $ f_ravenstar += 1
+            m "Oh, plenty."
+
+            "You begin reciting every detail you can remember from last night's Histories of Magic Schools for Dummies."
+            "It's a little rough around the edges, but you feel confident you said enough to convince Shadé that you are NOT a complete idiot."
+
+            "Their expression is still and stoic, completely unreadable."
+            $ renpy.pause(2.0)
+
+            shade "So nothing. You know nothing. Actually less than nothing."
+            m "H-hey! {p}I know enough to know that you're selling illegal shit under the table!"
+
+            shade "I'm not sure I trust you to tell one Necromancy scroll from another, to be honest."
+            m "B-b-"
+            shade "Ironically, I think you'd kill {i}yourself{/i} trying to reanimate someone."
+
+            "By this point you are thoroughly embarrassed and regret ever getting involved."
+
+            m "{size=-20}Whatever.{/size}"
+
+            shade "May I recommend The Booth of How To Tell Better Lies? I guess we both have a reason to go check it out."
+        
+    
+    jump shade_scene3
+
+
+label shade_scene3:   
+
+    m "Fine. I don't know much. {p}But you are shady, Shadé Ravenstar. You have the vibes."
+
+    shade "Don't you think you're being a little prejudiced?"
+
+    m "..."
+
+    shade "Necromancy is a respectable school of magic, you know. It's not all corpses and villainy."
+
+    m "Uh-huh."
+
+    shade "Well, it's all corpses and villainy to me."
+
+    m "See?! I knew it!"
+
+    shade "You don't do it for the fame and fortune it brings."
+
+    m "What {i}do{/i} you do it for?"
+
+    if f_ravenstar >= 2:
+        shade "..."
+        shade "No one's asked me that before and was actually interested in the answer."
+
+        shade "We're all gonna die one day. Our existence is but a blip, and seeing what we're all gonna become keeps me sane. It's peaceful."
+
+        m "Never thought of it that way."
+
+        m "But don't you think, when you bring someone back, you're denying them their rest?"
+
+        shade "They’re not the same. They don't have thoughts. Their soul, or whatever, is gone. It's just their shell and who cares what you do with that?"
+
+    else:
+
+        shade "It's just cooler than all that boring Elemental Magic."
+
+    m "Corpses and villainy, huh. Truly."
+
+    m "Will you be participating in the Wizarding Open?"
+
+    shade "No. There's very little point to the whole pompous display of power. As if it's not all rigged anyways."
+
+    m "That's a very dour outlook you have there. Sounds like a loser's mindset." 
+
+    shade "It is not!"
+
+    m "I'm just saying, you won't know till you try."
+
+    shade "I {i}have{/i} tried–"
+
+    m "Maybe you just haven't found the right people to do it with yet."
+
+    shade "..."
+
+    shade "Right, okay."
+
+    shade "Get out of my booth."
+
+    m "I'll be there tomorrow by the Rummaging Rat plaza at Summoning hour. If you feel like throwing off some of that nihilism, come join me. {p}And bring another Orb of Reanimate One Dead Dude."
+
+    if f_ravenstar >= 2:
+
+        shade "You said it yourself, it's illegal."
+
+        m "Since when did that stop you?"
+
+        shade "Ugh...fine,. you're right. But the one I {i}theoretically{/i} just sold was the only one I had."
+
+        m "..."
+        m "Liar."
+
+    "You shake your head, smile cryptically, and walk away."
+    if f_ravenstar >= 2:
+        "You're confident they'll show up."
+
+    scene black with dissolve
+    jump where_to_go
 
 
     return
