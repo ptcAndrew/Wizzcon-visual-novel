@@ -79,10 +79,12 @@ define flash = Fade(.25, 0.0, .75, color="#fff")
 define move_quick = MoveTransition(0.2)
 
 # Character definitions
+define m = Character("Me")
+define q = Character("???")
 define a = Character("Attendant", color="#3a6ad3", image="attendant")
-define maudlin = Character("Maudlin Thistlewood", color="#34eb77", image="maudlin")
-define shade = Character("Shadé Ravenstar", color="#6b357c", image="shade")
-define millicent = Character("Millicent Smolders", color="#810e06", image="millicent")
+define maudlin = Character("Maudlin", color="#34eb77", image="maudlin")
+define shade = Character("Shadé", color="#6b357c", image="shade")
+define millicent = Character("Millicent", color="#810e06", image="millicent")
 
 # Audio definitions
 define audio.bg_noise = "audio/convention_ambience.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/amber2023-30599665/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Amber</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Pixabay</a>
@@ -97,17 +99,23 @@ init -1 python:
     f_smolders = 0
     f_ravenstar = 0
 
+    disgusting = False
+
 # The game starts here.
+
+"""
+INTRO
+"""
 
 label start:
 
-    "{cps=30}The time has come for the 1328th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for 3 days of magical extravaganza!"
+    "{cps=30}The time has come for the 350th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for 3 days of magical extravaganza!"
 
     scene bg outside with dissolve
 
     "While thoughts of exotic creatures, peculiar potions, and spectacular spells do excite you; you've come here for one specific reason..."
 
-    "...to find a partner to compete with in the (NAME OF WIZARD TOURNAMENT)"
+    "...to find a partner to compete with in the Wizzowski Wizarding Open."
 
     "At the conventions end, the fiercest duos duke it out in the name of wizarding glory, and that glory you {i}must{/i} achieve."
 
@@ -135,7 +143,7 @@ label inside:
 
             jump dialogue1
         
-        "How can I enter the (WIZARD BATTLE)?":
+        "How can I enter the Wizzowski Wizarding Open?":
 
             jump dialogue2
 
@@ -199,37 +207,50 @@ label petting_zoo:
 
     return
 
+
+
+"""
+CASTING GROUND
+#
+#
+#
+#
+"""
+
+
 label casting_ground:
 
-    scene placeholder
+    scene casting ground
 
     "You are curious what the Casting Grounds have to offer this year, so you head that way to check it out."
 
     "You've always thought of this place as a playground for the more energetically inclined wizards, the ones that love showing off in various flashy ways where they can incur structural damage without getting insurance involved."
 
-    "This is where you'll find all the Evocation Wizards, the ones that love playing around with the elements. Ice Wizards, Water Wizards, Air Wizards, Dirt Wizards, Fire Wizards, so many wizards . . . "
+    "This is where you'll find all the Evocation Wizards, the ones that love playing around with the elements. {p}Ice Wizards, Water Wizards, Air Wizards, Earth Wizards, Fire Wizards, so many wizards . . . "
 
     "If you're not careful, you might catch a fireball to the face."
 
-    "Of course, OSHA regulations are followed and everyone has an invisible shield around them protecting them from {i}serious{/i} damage,"
+    "Of course, WOSHA regulations are followed and everyone has an invisible shield around them protecting them from {i}serious{/i} damage,"
     
     "But you're not sure if those shields will hold up against {color=#810e06}one particularly enthusiastic Dragonborn{/color} that seems hellbent on watching the world burn."
     
     "You join the handful of observers in her vicinity, mildly curious. She has decimated her opponent with her fire casting, and you watch him dejectedly slink off into the shadows...{p}Which is why you don't notice her scanning the crowd."
 
     play audio milli_whoosh volume 0.8
+    stop sound fadeout 0.1
+
     show millicent negative
     with moveinright
     
     with vpunch
-    millicent "You!"
+    q "You!" 
 
     "She points her clawed hand at you."
 
     show millicent negative:
         zoom 1.8
         ypos 2.0
-    millicent "Yes, you!"
+    q "Yes, you!"
     
     millicent "Face me, the great Millicent Smolders!"
 
@@ -247,13 +268,13 @@ label no_millicent_challenge:
     show millicent negative at resetzoom
     millicent "Coward."
     
-    menu:
-        "Respectfully, my lady, I do not wish to end up crispy.":
-            millicent "Accept the challenge, coward."
+    
+    m "Respectfully, my lady, I do not wish to end up crispy."
+    millicent "Accept the challenge, coward."
     
     "The handful of onlookers collectively ooooh, with one of them remarking, \“{i}You gonna let that stand?{/i}\”"
 
-    "Crumbling under the Weight of peer pressure, you hesitantly take up her challenge."
+    "Crumbling under the weight of peer pressure, you hesitantly take up her challenge."
 
     jump millicent_scene_2
 
@@ -281,24 +302,20 @@ label millicent_scene_2:
 
     millicent "You are a clever one."
 
-    menu:
-        "{i}That wasn't particularly hard...{/i}":
-            millicent "I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
-
-        "There's more to me than my good looks, you know.":
-            millicent "We shall see about that! I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
     
-    menu:
-        "That's disgusting!":
-            $ f_smolders -= 1
-            millicent "You are but a weakling. Your bloodline will die with you."
+    "{i}That wasn't particularly hard...{/i}"
 
-            menu:
-                "She may have a point. It didn't exactly work out with my last girlfriend...":
-                    jump millicent_scene_3
+    millicent "I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
+
+    menu:
+        "That is disgusting. {s}Please seek therapy. {/s}":
+            $ f_smolders -= 1
+            $ disgusting = True 
+            millicent "You are but a weakling. Your bloodline will die with you."
+            "{i}She may have a point. It didn't exactly work out with my last girlfriend...{/i}"
                 
-                "Your words may hurt my feelings but your spells won't ever touch me!":
-                    jump millicent_scene_3
+            m "Your words may hurt my feelings but your spells won't ever touch me!"
+            jump millicent_scene_3
         
         "Let's actually not do that, I like my guts where they belong.":
             # Neutral, no change to f score
@@ -314,9 +331,9 @@ label millicent_scene_2:
                 ypos 1.3
             millicent "You will fall like all the rest. You have neither the strength nor the wit to stand against me."
 
-            menu:
-                "You called me clever. So if you keep fighting like you have been, I will continue to outsmart you!":
-                    jump millicent_scene_3
+            
+            m  "You called me clever. So if you keep fighting like you have been, I will continue to outsmart you!"
+            jump millicent_scene_3
 
 label millicent_scene_3:
 
@@ -330,45 +347,50 @@ label millicent_scene_3:
     
     millicent "It does not matter what you say.{w} Your doom is inevitable.{w} I will concave your head.{w} I shall fashion your corpse into an armchair.{w} I will sear you from existence so thoroughly not even ash will remain!"
 
-    menu:
-        "Would you not rather save this sort of vehemence for the Wizzowski Wizarding Open?":
-            millicent "There is enough rage within me to do both!"
+    
+    m "Would you not rather save this sort of vehemence for the Wizzowski Wizarding Open?"
+    millicent "There is enough rage within me to do both!"
     
     play audio sparkle volume 0.7
     scene white with dissolve
     "She casts Sneaky Sparks Attack and you are momentarily disoriented by all the sudden, small, bright fireballs assaulting your vision."
 
-    scene placeholder with dissolve
+    scene casting ground with dissolve
     show millicent negative with dissolve
     "It lasts but a second, but as your vision fades back in, so does her fist straight to your nose."
     
-    menu:
-        "Few Wizards abandon their spells in favour of an old fashioned fistfight . . . ":
-            play audio punch
-            with vpunch
-            "You fall flat on your ass, crying out."
+    if disgusting:
+        "{i}I suppose I did say only her spells won't touch me.{/i}"
+
+    else:
+        "{i}Few Wizards abandon their spells in favour of an old fashioned fistfight . . . {/i}"
+
+    play audio punch
+    with vpunch
+    "You fall flat on your ass, crying out."
     
     millicent "With my mighty fists I shall beat you bloody!"
 
-    "She follows you down and it turns into a grappling contest that you, a human, are ill equipped to win against a Dragonborn. She’s got her tail wrapped around your ankle and her tops of her wings pin you to the ground. You attempt to squirm out but she's got a solid hold on you."
+    "She follows you down and it turns into a grappling contest that you, a human, are ill equipped to win against a Dragonborn."
+    
+    "She’s got her tail wrapped around your ankle and her tops of her wings pin you to the ground. You attempt to squirm out but she's got a solid hold on you."
 
     "Feeling trapped and panicky, you rummage through your brain for a spell but only one springs to mind,{w} and it's the worst one you know."
 
-    "Definitely overkill for a {i}\"friendly\"{/i} Wozard fight, but the light is fading..."
+    "Definitely overkill for a {i}\"friendly\"{/i} Wizard fight, but the light is fading..."
 
-    
+    $ spell_name = renpy.input("What spell will you cast?")
+    $ spell_name = spell_name.strip()  #
+
+    m "[spell_name]!"
     hide millicent with flash
     play audio boom
     with vpunch
-    "You cast <SPELLNAME>!"
-
-    menu:
-        "{i}*cough* *cough*{/i}":
-            "Millicent is a couple feet away, slowly and painfully prying all her various limbs off the floor. You yourself managed to survive unscathed."
-
-        "That was awful.":
-            "Millicent is a couple feet away, slowly and painfully prying all her various limbs off the floor. You yourself managed to survive unscathed."
     
+    
+    m  "{i}*cough* *cough*{/i}"
+    "Millicent is a couple feet away, slowly and painfully dragging all her various limbs on the floor. You yourself managed to survive unscathed."
+
     menu:
         "We've both had enough. Let's call it a tie and end it here.":
             $ f_smolders -= 1
@@ -376,39 +398,57 @@ label millicent_scene_3:
         "Your defeat has been a long time coming and I'm glad I could deliver it to you.":
             $ f_smolders += 1
     
-    "But she weakly struggles to her feet. A couple emotions pass across her face–confusion, despair, rage–and finally settles on resignation. But she seems ready to continue the fight."
+    "But she weakly struggles to her feet. A couple emotions pass across her face–confusion, despair, rage–and finally settles on resignation. {w}But she seems ready to continue the fight."
 
     show millicent negative with moveinbottom
     millicent "The battle is not over yet, wizard."
 
-    menu:
-        "{i}Does she ever give up?{/i}":
-            menu:
-                "Save your strength and sign up for the Wizarding Open tomorrow. With you as my partner, we have a chance to win it.":
-                    millicent ". . ."
+    "{i}Does she ever give up?{/i}"
+        
+    m "Save your strength and sign up for the Wizarding Open tomorrow. With you as my partner, we have a chance to win it."
+    millicent ". . ."
     
     show millicent positive
     millicent "You have been a worthy opponent. I shall consider it."
 
     show millicent
-    menu:
-        "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?":
-            show millicent negative
-            if f_smolders == 3:
-                millicent "A long list of injustices."
-            else:
-                millicent "An even {b}hotter{/b} rage."
+    
+    m "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?"
+    show millicent negative
+    if f_smolders == 3:
+        millicent "A long list of injustices."
+    else:
+        millicent "An even {b}hotter{/b} rage."
     
     show millicent
-    menu:
-        "... Fair enough.":
-            menu:
-                "You'll be able to find me at the Rummaging Rat at Summoning Hour tomorrow.":
-                    "You don't wait for her response before turning around and walking away."
+    
+    m "... Fair enough."
+    m "You'll be able to find me at the Rummaging Rat at Summoning Hour tomorrow."
+    "You don't wait for her response before turning around and walking away."
     
     scene black with dissolve
     return
 
 label artifacts:
+
+    scene artifacts expo
+
+    "It is time for you to check out the Artifacts Expo."
+
+    "There are booths displaying fun wizarding tricks (like nuanced control of Evocation spells to create brilliant elemental artworks) and booths selling neat little gadgets full of fun little magic."
+
+    "Having never strayed far from your own School of Magic, you find the showcases intriguing. You take your time moving from booth to booth, taking in all in."
+
+    "You're watching a skilled Illusion wizard create a hyper-realistic squirrel out of nothing when something catches your attention. {p}Out of the corner of your eye, you spy a vendor one booth over standing a little too close to one of their customers."
+
+    "You watch the customer hand over an envelope full of cash. The vendor surreptitiously slides an Orb of Reanimate One Dead Dude to the customer who quickly pockets it."
+
+    "The customer hastily leaves the booth–you realize it's a Necromancy booth–and the vendor returns to their chair like nothing happened."
+
+    "As far as you know, the Orb of Reanimate One Dead Dude is illegal. {p}You only know what it is because you just finished the chapter on Necromancy in your Histories of Magic Schools for Dummies last night, and it came up. {s}Coincidence?{/s}"
+
+    "Intrigued, you approach the Necromancy booth."
+
+
 
     return

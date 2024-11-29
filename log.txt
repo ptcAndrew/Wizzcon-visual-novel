@@ -1,104 +1,54 @@
-2024-11-27 17:44:29 UTC
-Windows-10-10.0.22631
+2024-11-29 03:26:42 UTC
+macOS-14.2.1-arm64-arm-64bit
 Ren'Py 8.3.2.24090902
 
-Early init took 0.06s
-Loading error handling took 0.03s
-Loading script took 0.19s
-Loading save slot metadata took 0.08s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.07s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.07s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 209.60s
-Loading error handling took 0.02s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 239: Menu does not contain any choices.
-    menu:
-         ^
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.17s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 381.32s
+Early init took 0.03s
 Loading error handling took 0.02s
 Loading script took 0.09s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 240: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Respectfully, my lady, I do not wish to end up crispy."
-                                                            ^
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.17s
+INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.02s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.19s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 390.44s
+Early init took 235.88s
 Loading error handling took 0.02s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
 Running init code took 0.02s
@@ -106,15 +56,13 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
@@ -125,47 +73,24 @@ Prepare screens took 0.03s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.05s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 402.89s
+Early init took 320.84s
 Loading error handling took 0.01s
 Loading script took 0.08s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 240: choice menuitem expects a non-empty block.
-    "Respectfully, my lady, I do not wish to end up crispy.":
-                                                             ^
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.17s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 418.05s
-Loading error handling took 0.01s
-Loading script took 0.09s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
@@ -174,41 +99,102 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.01s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.00s
+Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.05s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 383, in script
+    $ spell_name = p_name.strip()  #
+  File "/Users/lucaskordov/Documents/renpy-8.3.2-sdk/renpy/ast.py", line 821, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/lucaskordov/Documents/renpy-8.3.2-sdk/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 383, in <module>
+    $ spell_name = p_name.strip()  #
+NameError: name 'p_name' is not defined
+
+While running game code:
+  File "game/script.rpy", line 383, in script
+    $ spell_name = p_name.strip()  #
+  File "game/script.rpy", line 383, in <module>
+    $ spell_name = p_name.strip()  #
+NameError: name 'p_name' is not defined
+Resetting cache.
+Early init took 358.94s
+Loading error handling took 0.01s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 451.63s
+Early init took 490.68s
 Loading error handling took 0.01s
-Loading script took 0.09s
+Loading script took 0.08s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
@@ -217,41 +203,41 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.01s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.00s
+Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.05s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 468.49s
+Early init took 492.45s
 Loading error handling took 0.01s
-Loading script took 0.08s
+Loading script took 0.04s
 Loading save slot metadata took 0.01s
 Loading persistent took 0.00s
 INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
@@ -260,14 +246,12 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.01s
 Index archives took 0.00s
-Dump and make backups took 0.03s
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
@@ -278,795 +262,48 @@ Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.05s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 512.61s
+Early init took 535.12s
 Loading error handling took 0.01s
-Loading script took 0.09s
+Loading script took 0.07s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
+
+File "game/script.rpy", line 416: end of line expected.
+    m "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?":
+                                                                                                                 ^
+DPI scale factor: 1.000000
+Interface start took 0.07s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 1028.49s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1054.67s
-Loading error handling took 0.01s
-Loading script took 0.10s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.14s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1073.03s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.02s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1082.31s
-Loading error handling took 0.01s
-Loading script took 0.08s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1117.43s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1126.72s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1139.07s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1157.44s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1198.61s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1216.94s
-Loading error handling took 0.01s
-Loading script took 0.08s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1221.70s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.02s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1226.43s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1250.82s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.11s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1263.12s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1269.38s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1272.58s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.13s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1318.18s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1441.33s
-Loading error handling took 0.01s
+Early init took 547.38s
+Loading error handling took 0.02s
 Loading script took 0.09s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
@@ -1076,15 +313,13 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
+Backing up script files to '/Users/lucaskordov/Library/RenPy/backups/Wizzcon':
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
+Initial gc took 0.02s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
@@ -1092,437 +327,27 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1677.78s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 260: expected 'simple_expression' not found.
-    show millicent negative at 
-                               ^
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.17s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1692.91s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.03s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.06s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1714.35s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1734.21s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 973) drawable=(1920, 973)
 Maximum texture size: 4096x4096
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.01s
+Load screen analysis took 0.03s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
-Resetting cache.
-Early init took 1787.66s
-Loading error handling took 0.01s
-Loading script took 0.08s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1826.02s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1880.74s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1890.04s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1908.39s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1916.14s
-Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.750000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.12s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 565.90'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
-Maximum texture size: 4096x4096

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 404: Menu does not contain any choices.
-    menu:
-         ^
+File "game/script.rpy", line 416: end of line expected.
+    m "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?":
+                                                                                                                 ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Wed Nov 27 13:04:42 2024
+Thu Nov 28 20:35:37 2024
