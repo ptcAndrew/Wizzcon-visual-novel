@@ -120,6 +120,8 @@ label start:
 
     scene bg outside with dissolve
 
+    
+
     "While thoughts of exotic creatures, peculiar potions, and spectacular spells do excite you; you've come here for one specific reason..."
 
     "...to find a partner to compete with in the Wizzowski Wizarding Open."
@@ -469,7 +471,7 @@ label artifacts:
     "The customer hastily leaves the booth–you realize it's a Necromancy booth–and the vendor returns to their chair like nothing happened."
 
     "As far as you know, the Orb of Reanimate One Dead Dude is illegal."
-    
+
     "You only know what it is because you just finished the chapter on Necromancy in your Histories of Magic Schools for Dummies last night, and it came up. {s}Coincidence?{/s}"
 
     "Intrigued, you approach the Necromancy booth."
