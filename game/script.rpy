@@ -99,7 +99,14 @@ init -1 python:
     f_smolders = 0
     f_ravenstar = 0
 
+    #millicent dialogue trigger
     disgusting = False
+
+    #where the player has visited
+    locations_visited = 0
+    zoo_visitied = False
+    casting_visiting = False
+    expo_visited = False
 
 # The game starts here.
 
@@ -158,6 +165,10 @@ label dialogue1:
 
     a "Finally, the {color=#946bc9}Artifacts Expo{/color} has magical items from all over the world on display! {w}Some of the things in there really give me the creeps..."
 
+    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
+
+    hide attendant with dissolve
+
     jump where_to_go
 
 label dialogue2:
@@ -174,34 +185,43 @@ label dialogue2:
 
     a "Or maybe you're looking for someone unexpected... {w}the {color=#946bc9}Artifacts Expo{/color} has all sorts of things, you never know who might be poking around there."
 
+    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
+
+    hide attendant with dissolve
+
     jump where_to_go
 
 label where_to_go:
 #TODO:
 #add conditionals for already visiting the locations
 
+    scene bg inside with dissolve
 
-    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
-
-    hide attendant with dissolve
-
-    "{i}I guess I better start checking this place out...{/i}"
-
+    if locations_visited == 0:
+        
+        "{i}I guess I better start checking this place out...{/i}"
+    
     show brochure with moveinbottom
 
     menu:
 
-        "{i}Where should I go first...{/i}"
+        "{i}Where should I go...{/i}"
 
-        "{color=#00b347}Petting Zoo{/color}":
+        "{color=#00b347}Petting Zoo{/color}" if zoo_visitied == False:
+            $ zoo_visitied = True
+            $ locations_visited += 1
             hide brochure
             jump petting_zoo
 
-        "{color=#db4c04}Casting Ground{/color}":
+        "{color=#db4c04}Casting Ground{/color}" if casting_visiting == False:
+            $ casting_visiting = True
+            $ locations_visited += 1
             hide brochure
             jump casting_ground
 
-        "{color=#946bc9}Artifacts Expo{/color}":
+        "{color=#946bc9}Artifacts Expo{/color}" if expo_visited == False:
+            $ expo_visited = True
+            $ locations_visited += 1
             hide brochure
             jump artifacts
 
@@ -500,7 +520,7 @@ label artifacts:
 
             m "You do."
 
-            shade "Hypothetically. Let's say I did have one. What's a pretty thing like you gonna do with an item like that?"
+            shade "{i}Hypothetically{/i}. Let's say I did have one. What's a pretty thing like you gonna do with an item like that?"
 
             menu:
                 "Use it to win tomorrow’s Wizarding Open, obviously!":
