@@ -104,7 +104,14 @@ init -1 python:
     f_smolders = 0
     f_ravenstar = 0
 
+    #millicent dialogue trigger
     disgusting = False
+
+    #where the player has visited
+    locations_visited = 0
+    zoo_visitied = False
+    casting_visiting = False
+    expo_visited = False
 
 # The game starts here.
 
@@ -117,6 +124,8 @@ label start:
     "{cps=30}The time has come for the 350th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for 3 days of magical extravaganza!"
 
     scene bg outside with dissolve
+
+    
 
     "While thoughts of exotic creatures, peculiar potions, and spectacular spells do excite you; you've come here for one specific reason..."
 
@@ -163,6 +172,10 @@ label dialogue1:
 
     a "Finally, the {color=#946bc9}Artifacts Expo{/color} has magical items from all over the world on display! {w}Some of the things in there really give me the creeps..."
 
+    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
+
+    hide attendant with dissolve
+
     jump where_to_go
 
 label dialogue2:
@@ -179,34 +192,43 @@ label dialogue2:
 
     a "Or maybe you're looking for someone unexpected... {w}the {color=#946bc9}Artifacts Expo{/color} has all sorts of things, you never know who might be poking around there."
 
+    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
+
+    hide attendant with dissolve
+
     jump where_to_go
 
 label where_to_go:
 #TODO:
 #add conditionals for already visiting the locations
 
+    scene bg inside with dissolve
 
-    a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
-
-    hide attendant with dissolve
-
-    "{i}I guess I better start checking this place out...{/i}"
-
+    if locations_visited == 0:
+        
+        "{i}I guess I better start checking this place out...{/i}"
+    
     show brochure with moveinbottom
 
     menu:
 
-        "{i}Where should I go first...{/i}"
+        "{i}Where should I go...{/i}"
 
-        "{color=#00b347}Petting Zoo{/color}":
+        "{color=#00b347}Petting Zoo{/color}" if zoo_visitied == False:
+            $ zoo_visitied = True
+            $ locations_visited += 1
             hide brochure
             jump petting_zoo
 
-        "{color=#db4c04}Casting Ground{/color}":
+        "{color=#db4c04}Casting Ground{/color}" if casting_visiting == False:
+            $ casting_visiting = True
+            $ locations_visited += 1
             hide brochure
             jump casting_ground
 
-        "{color=#946bc9}Artifacts Expo{/color}":
+        "{color=#946bc9}Artifacts Expo{/color}" if expo_visited == False:
+            $ expo_visited = True
+            $ locations_visited += 1
             hide brochure
             jump artifacts
 
@@ -730,7 +752,9 @@ label artifacts:
 
     "The customer hastily leaves the booth–you realize it's a Necromancy booth–and the vendor returns to their chair like nothing happened."
 
-    "As far as you know, the Orb of Reanimate One Dead Dude is illegal. {p}You only know what it is because you just finished the chapter on Necromancy in your Histories of Magic Schools for Dummies last night, and it came up. {s}Coincidence?{/s}"
+    "As far as you know, the Orb of Reanimate One Dead Dude is illegal."
+
+    "You only know what it is because you just finished the chapter on Necromancy in your Histories of Magic Schools for Dummies last night, and it came up. {s}Coincidence?{/s}"
 
     "Intrigued, you approach the Necromancy booth."
 
@@ -738,12 +762,15 @@ label artifacts:
 
     m "You should really be more careful with how you handle those sorts of transactions."
 
+    show shade with dissolve
+
     "The vendor looks at you, deadpan and unimpressed. Their name tag reads {color=#6b357c}\"Shade Ravenstar\".{/color}"
 
     shade "I don't know what you're talking about."
 
     m "That was an Orb of Reanimate One Dead Dude. You sold one of those to that guy. You can't lie to me."
 
+    show shade negative
     shade "I really don't know what you're talking about about. Did you just come from Wizard Dick's booth of Seeing Things?"
 
     "{i}What a frustrating being.{/i}"
@@ -753,7 +780,7 @@ label artifacts:
     shade "..."
 
     m "..."
-
+    show shade
     shade "What do you want?"
 
     "Now that you're asked the question, you're not sure how to answer it. "
@@ -764,6 +791,7 @@ label artifacts:
             $ f_ravenstar -= 1
             shade "..."
             m "What you're doing...that's illegal. "
+            show shade negative 
             "Shadé rolls their eyes."
             m "I’m serious! Necromancy can be an abhorrent school of magic and there’s a reason everyone needs to follow the rules around necromantic magical artifacts!"
             jump shade_scene2
@@ -776,13 +804,15 @@ label artifacts:
 
             shade "Hm."
 
-            "Shade gives you a long look. You do not squirm. {w}You don’t."
+            show shade negative
+            "Shade gives you a long look. {w}You do not squirm. {w}You don’t."
 
+            show shade
             shade "Okay, let's say I {i}did{/i} have an Orb of Reanimate One Dead Dude–"
 
             m "You do."
 
-            shade "Hypothetically. Let's say I did have one. What's a pretty thing like you gonna do with an item like that?"
+            shade "{i}Hypothetically{/i}. Let's say I did have one. What's a pretty thing like you gonna do with an item like that?"
 
             menu:
                 "Use it to win tomorrow’s Wizarding Open, obviously!":
@@ -801,6 +831,7 @@ label artifacts:
                     $ f_ravenstar += 1
                     "They take a moment to think about your answer."
 
+                    show shade positive
                     shade "I'm sympathetic to that. But you need the other, more legal, Orb of Reanimate My Dead Pet for that. The Orb of Reanimate One Dead Dude is for conscious beings."
 
                     m "Yeah... {w}right!"
@@ -815,7 +846,9 @@ label artifacts:
                 
 label shade_scene2:
 
+    show shade negative
     shade "..."
+    show shade
     shade "How much do you actually know about the School of Necromancy?"
 
     menu:
@@ -823,8 +856,10 @@ label shade_scene2:
             $ f_ravenstar -= 1
             m "Not very much. It's not my area of expertise and I don't have much of an interest in it, to be honest."
 
+            show shade negative
             "Shadé seems a little let down."
 
+            show shade
             shade "Then how can you tell that what I have is illegal? Do you know what you’re getting yourself into?"
 
             m "I’ve read all about it in the Histories of Magic Schools for Dummies."
@@ -835,13 +870,16 @@ label shade_scene2:
         "Lie.":
             $ f_ravenstar += 1
             m "Oh, plenty."
-
+            
+            show shade positive
             "You begin reciting every detail you can remember from last night's Histories of Magic Schools for Dummies."
             "It's a little rough around the edges, but you feel confident you said enough to convince Shadé that you are NOT a complete idiot."
 
+            show shade
             "Their expression is still and stoic, completely unreadable."
             $ renpy.pause(2.0)
 
+            show shade negative
             shade "So nothing. You know nothing. Actually less than nothing."
             m "H-hey! {p}I know enough to know that you're selling illegal shit under the table!"
 
@@ -853,6 +891,7 @@ label shade_scene2:
 
             m "{size=-20}Whatever.{/size}"
 
+            show shade
             shade "May I recommend The Booth of How To Tell Better Lies? I guess we both have a reason to go check it out."
         
     
@@ -871,18 +910,23 @@ label shade_scene3:
 
     m "Uh-huh."
 
+    show shade positive
     shade "Well, it's all corpses and villainy to me."
 
     m "See?! I knew it!"
 
+    show shade
     shade "You don't do it for the fame and fortune it brings."
 
     m "What {i}do{/i} you do it for?"
 
     if f_ravenstar >= 2:
         shade "..."
+
+        show shade positive
         shade "No one's asked me that before and was actually interested in the answer."
 
+        show shade
         shade "We're all gonna die one day. Our existence is but a blip, and seeing what we're all gonna become keeps me sane. It's peaceful."
 
         m "Never thought of it that way."
@@ -899,6 +943,7 @@ label shade_scene3:
 
     m "Will you be participating in the Wizarding Open?"
 
+    show shade negative
     shade "No. There's very little point to the whole pompous display of power. As if it's not all rigged anyways."
 
     m "That's a very dour outlook you have there. Sounds like a loser's mindset." 
@@ -913,14 +958,18 @@ label shade_scene3:
 
     shade "..."
 
+    show shade
     shade "Right, okay."
 
+    show shade negative
     shade "Get out of my booth."
 
+    show shade
     m "I'll be there tomorrow by the Rummaging Rat plaza at Summoning hour. If you feel like throwing off some of that nihilism, come join me. {p}And bring another Orb of Reanimate One Dead Dude."
 
     if f_ravenstar >= 2:
 
+        
         shade "You said it yourself, it's illegal."
 
         m "Since when did that stop you?"
@@ -930,6 +979,7 @@ label shade_scene3:
         m "..."
         m "Liar."
 
+    hide shade with dissolve
     "You shake your head, smile cryptically, and walk away."
     if f_ravenstar >= 2:
         "You're confident they'll show up."

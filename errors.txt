@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 416: end of line expected.
-    m "I wonder if there is more to you, Millicent Smolders. What is it that simmers behind all that fiery rage?":
-                                                                                                                 ^
+File "game/script.rpy", line 224: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    $ locations_visited += 1
+    ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Thu Nov 28 20:35:37 2024
+Sat Nov 30 19:36:27 2024
