@@ -16,7 +16,7 @@ image attendant positive:
 
 image attendant negative:
     zoom 0.7
-    ypos 1.0
+    ypos 1.3
     "attendant negative.png"
 
 image maudlin neutral:
@@ -137,8 +137,6 @@ label start:
 
     jump inside
 
-  
-
 label inside:
 
     play sound bg_noise volume 0.3 loop # adjust volume as needed
@@ -162,7 +160,6 @@ label inside:
         "How can I enter the Wizzowski Wizarding Open?":
 
             jump dialogue2
-
 
 label dialogue1:
 
@@ -210,30 +207,49 @@ label where_to_go:
         
         "{i}I guess I better start checking this place out...{/i}"
     
-    show brochure with moveinbottom
+    elif locations_visited < 3:
 
-    menu:
+        show brochure with moveinbottom
 
-        "{i}Where should I go...{/i}"
+        menu:
 
-        "{color=#00b347}Petting Zoo{/color}" if zoo_visitied == False:
-            $ zoo_visitied = True
-            $ locations_visited += 1
-            hide brochure
-            jump petting_zoo
+            "{i}Where should I go...{/i}"
 
-        "{color=#db4c04}Casting Ground{/color}" if casting_visited == False:
-            $ casting_visited = True
-            $ locations_visited += 1
-            hide brochure
-            jump casting_ground
+            "{color=#00b347}Petting Zoo{/color}" if zoo_visitied == False:
+                $ zoo_visitied = True
+                $ locations_visited += 1
+                hide brochure
+                jump petting_zoo
 
-        "{color=#946bc9}Artifacts Expo{/color}" if expo_visited == False:
-            $ expo_visited = True
-            $ locations_visited += 1
-            hide brochure
-            jump artifacts
+            "{color=#db4c04}Casting Ground{/color}" if casting_visited == False:
+                $ casting_visited = True
+                $ locations_visited += 1
+                hide brochure
+                jump casting_ground
 
+            "{color=#946bc9}Artifacts Expo{/color}" if expo_visited == False:
+                $ expo_visited = True
+                $ locations_visited += 1
+                hide brochure
+                jump artifacts
+
+    elif locations_visited == 3:
+
+        jump ending
+
+"""
+ENDING
+"""
+
+label ending:
+    
+    return
+
+"""
+PETTING ZOO
+#
+MAUDLIN THISTLEWOOD ARC
+"""
 
 label petting_zoo:
     
@@ -293,30 +309,13 @@ label petting_zoo:
     menu:
         "I seek honor and glory in the heat of battle. I'm entering the Wizzowski Wizarding Open, and when I've crushed all those who oppose me with my awesome and deadly magic, I will surely be victorious!":
             $ f_thisslewood -= 1
-            jump maudlin_bad_first_impression
+            maudlin "Hmph! Another violent brute with more muscles than brain cells, I see. Not to be rude, but I don't much care for bullies who think that might makes right."
 
         "I'm seeking a wise and trustworthy wizarding companion so I can enter the Wizzowski Wizarding Open. If I and my teammate are to succeed, it will surely take all our combined wits.":
             $ f_thisslewood += 1
-            jump maudlin_good_first_impression
+                maudlin "A wise and prudent strategy! With wizardly cunning like that, I should hope to not be on the wrong end of your wand should our paths cross in the tournament."
 
-    return
-
-label maudlin_bad_first_impression:
-    
-    show maudlin negative
-    
-    maudlin "Hmph! Another violent brute with more muscles than brain cells, I see. Not to be rude, but I don't much care for bullies who think that might makes right."
-    
     jump maudlin_scene_2
-
-label maudlin_good_first_impression:
-    
-    show maudlin positive
-    
-    maudlin "A wise and prudent strategy! With wizardly cunning like that, I should hope to not be on the wrong end of your wand should our paths cross in the tournament."
-    
-    jump maudlin_scene_2
-
 
 label maudlin_scene_2:
     
@@ -525,7 +524,7 @@ label maudlin_scene_3:
     
 label maudlin_no_rescue:
     if plan_revealed:
-        "You leave Maudlin to execute his daring rescure operation."
+        "You leave Maudlin to execute his daring rescue operation."
     else:
         "You leave Maudlin to his odd ritual and make your way out of the petting zoo."
 
@@ -535,9 +534,9 @@ label maudlin_no_rescue:
     if plan_revealed:
         "It would appear Maudlin found some success casting 'Mass Animal Teleport', though it seems the spell didn't have the effective range he had intended..."
     
-    "Moments later, you notice that the animals previously housed in the petting zoo area have now been spread out to all corners of the convention center."
+    "You notice that the animals previously housed in the petting zoo area have now been spread out to all corners of the convention center."
     
-    "Most of them hardly seem phased by the change, but you do see a group of Wiz-gaurds make their way towards the petting zoo hall."
+    "Most of the creatures hardly seem phased by the change, but you do see a group of Wiz-gaurds make their way towards the petting zoo hall."
     
     if plan_revealed:
         "Hopefully Maudlin has a plan to escape capture!"
@@ -565,11 +564,8 @@ label maudlin_rescue:
 """
 CASTING GROUND
 #
-#
-#
-#
+MILLICENT SMOLDERS
 """
-
 
 label casting_ground:
     $ smolders_met = True
@@ -783,6 +779,12 @@ label millicent_scene_3:
     scene black with dissolve
     jump where_to_go
 
+"""
+ARTIFACTS EXPO
+#
+SHADÉ RAVENSTAR
+"""
+
 label artifacts:
     $ ravenstar_met = True
 
@@ -812,7 +814,7 @@ label artifacts:
 
     show shade with dissolve
 
-    "The vendor looks at you, deadpan and unimpressed. Their name tag reads {color=#6b357c}\"Shade Ravenstar\".{/color}"
+    "The vendor looks at you, deadpan and unimpressed. Their name tag reads {color=#6b357c}\"Shadé Ravenstar\".{/color}"
 
     shade "I don't know what you're talking about."
 
@@ -853,7 +855,7 @@ label artifacts:
             shade "Hm."
 
             show shade negative
-            "Shade gives you a long look. {w}You do not squirm. {w}You don’t."
+            "Shadé gives you a long look. {w}You do not squirm. {w}You don’t."
 
             show shade
             shade "Okay, let's say I {i}did{/i} have an Orb of Reanimate One Dead Dude–"
@@ -891,7 +893,6 @@ label artifacts:
                     m "Right. {w}Um. {w}How do I use it?"
                     jump shade_scene2
 
-                
 label shade_scene2:
 
     show shade negative
@@ -944,7 +945,6 @@ label shade_scene2:
         
     
     jump shade_scene3
-
 
 label shade_scene3:   
 
@@ -1034,5 +1034,3 @@ label shade_scene3:
 
     scene black with dissolve
     jump where_to_go
-
-    return
