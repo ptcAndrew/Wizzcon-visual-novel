@@ -510,7 +510,7 @@ label maudlin_scene_3:
                 maudlin "I see..."
                 maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help."
                 maudlin "I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect."
-                maudlin "Come and find me in the park accross the street from the convention tomorrow if you want to find out how things went!"
+                maudlin "If you want to find out how things went. Come and find me at the Rummaging Rat at Summoning Hour tomorrow!"
                 jump maudlin_no_rescue
             "You can't just zap away the petting zoo! These creatures are the property of Wizzcon!":
                 $ f_thisslewood -= 1
@@ -518,7 +518,7 @@ label maudlin_scene_3:
                 maudlin "Keep your voice down you buffoon! If you don't care to take part then so be it, but I'll be quite upset if you ruin this for me."
                 maudlin "And how dare you refer to these noble beasts as property. They're living things!"
                 if f_thisslewood >= 0:
-                    maudlin "You might not be cut out to help me here, but if you still want to enter the Wizarding Open together, come find me at the park accross from the convention center tomorrow. Now beat it!"
+                    maudlin "You might not be cut out to help me here, but if you still want to enter the Wizarding Open together, come and find me at the Rummaging Rat at Summoning Hour tomorrow. Now beat it!"
                 else:
                     maudlin "Now get out of here before you spoil everything!"
                 jump maudlin_no_rescue
@@ -1034,6 +1034,5 @@ label shade_scene3:
 
     scene black with dissolve
     jump where_to_go
-
 
     return
