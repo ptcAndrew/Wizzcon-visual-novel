@@ -90,6 +90,7 @@ define a = Character("Attendant", color="#3a6ad3", image="attendant")
 define maudlin = Character("Maudlin", color="#34eb77", image="maudlin")
 define shade = Character("Shadé", color="#6b357c", image="shade")
 define millicent = Character("Millicent", color="#810e06", image="millicent")
+define speaker = Character("Announcement", color="#82b2ff")
 
 # Audio definitions
 define audio.bg_noise = "audio/convention_ambience.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/amber2023-30599665/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Amber</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=262687">Pixabay</a>
@@ -242,8 +243,87 @@ ENDING
 """
 
 label ending:
+
+    scene black
+
+    "Having had your fill of the convention for one day, you retire to your quarters in the nearby Best Wizztern Inn"
+
+    "As you nod off for the night, you start to reflect on your day..."
+
+    "...your reflections turn to dreams, and soon..."
+
+    if f_thisslewood > f_smolders and f_thisslewood > f_ravenstar:
+        # best result is maudlin
+        "...you see a small green figure surrounded by beasts of all shapes and sizes..."
+        "...together, they move with the grace and accuracy of an orchestra..."
+        "...shadowy figures opposing the green figure and it's mighty menagerie are overwhelmed..."
+        "...then, with a sudden flash and whiff of barnyard smell, you awaken"
+    elif f_smolders > f_thisslewood and f_smolders > f_ravenstar:
+        # best result is millicent
+        "...you see a large winged figure towering over you, while shadowed masses seem to surround you..."
+        "...the mighty figure whips their wings and snaps there fingers, and a fiery vortex appears on all sides of you..."
+        "...but the heat doesn't burn you. Instead, you feel a fierce passion for victory well up from within you..."
+        "...the shadowed masses slowly dwindle and retreat, and you wake up to a subtle smell of brimstone"
+    elif f_ravenstar > f_thisslewood and f_ravenstar > f_smolders:
+        # best result is shade
+        "...you find yourself surrounded by headstones, under an impossibly grey and colorless sky..."
+        "...you catch the presence of a slender, graceful figure out of the corner of your eye..."
+        "...you try to call out to them, but the very air around you seems to swallow up your voice..."
+        "...the slim figure floats towards you as you struggle to speak, and with a gentle thrust of their palm on your chest, you awake suddenly with a start and a deep breath"
+    else:
+        # there was a tie
+        "...you are suddenly surrounded by an impossibly large crowd seated in a colosseum. The excitement of this audience is palpable..."
+        "...you see that you are square in the center of the colosseum's combat zone, and from every wall a shadowy figure seems to appear..."
+        "...fear overtakes your heart, and you can't help but think that your end is surely near..."
+        "...but then, a hand touches your shoulder. You look around and see a familiar face, but you suddenly awaken before you can fully recognize them"
     
+    "You see the morning sun peaking through your window. It is the day of the Wizzowski Wizarding Open, and it's time for you to recruit your partner."
+
+    "You arrive back to the Wizzcon grounds just in time to hear an annoucement boom across the convention center"
+
+    speaker "I hope everyone’s been having a magical time so far because it’s almost time for our main event the Wizzowski Wizarding Open!"
+    speaker "Signups close soon so be sure to come drop by right away!"
+
+    m "There's only time to seek out one potential partner before the signups close. I'll have to choose carefully"
+
+    # good and bad endings for each partner
+    
+    menu:
+        "{i}Who should I choose as my partner...?{/i}"
+
+        "Maudlin Thistlewood":
+            "You head to the Rummaging Rat Plaza in search of Maudlin"
+            "Tracking him down isn't easy, considering both his short stature and his need to lay low after the petting zoo incident yesterday"
+            "Luckily, you spot him sitting up in a tree on the outskirts of the plaza sharing an Apple with Barnabus"
+            if f_thisslewood > 0:
+                jump maudlin_good_ending
+            else:
+                jump maudlin_bad_ending
+        "Millicent Smolders":
+            if f_smolders > 0:
+                jump millicent_good_ending
+            else:
+                jump millicent_bad_ending
+        "Shadé Ravenstar":
+            if f_ravenstar > 0:
+                jump shade_good_ending
+            else:
+                jump shade_bad_ending
+
     return
+
+label maudlin_good_ending:
+
+label maudlin_bad_ending:
+
+label millicent_good_ending:
+
+label millicent_bad_ending:
+
+label shade_good_ending:
+
+label shade_bad_ending:
+
 
 """
 PETTING ZOO
