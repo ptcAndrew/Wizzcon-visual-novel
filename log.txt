@@ -1,53 +1,328 @@
-2024-12-02 03:36:29 UTC
-Windows-10-10.0.19045
+2024-12-02 23:07:37 UTC
+Windows-10-10.0.22631
 Ren'Py 8.3.2.24090902
 
 Early init took 0.05s
-Loading error handling took 0.03s
-Loading script took 0.18s
-Loading save slot metadata took 0.11s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
 Running init code took 0.04s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.11s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Playthru Crew\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
-Dump and make backups took 0.00s
+Dump and make backups took 0.03s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.03s
-INFO:renpy_warp_service:connected to renpy warp socket server on :40111
-DPI scale factor: 1.000000
+Initial gc took 0.02s
+DPI scale factor: 1.750000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.19s
+Creating interface object took 0.13s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.01s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 444.31s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 144: expected end of line
+    play audio bg_sounds_channel bg_noise volume 0.2 loop 
+                                 ^
+
+File "game/script.rpy", line 630: expected end of line
+    play audio sfx sparkle volume 0.5
+                   ^
+
+File "game/script.rpy", line 633: expected end of line
+    play audio sfx punch volume 0.5
+                   ^
+
+File "game/script.rpy", line 671: expected end of line
+    play audio sfx milli_whoosh volume 0.8
+                   ^
+
+File "game/script.rpy", line 723: expected end of line
+    play audio sfx milli_whoosh volume 0.8
+                   ^
+
+File "game/script.rpy", line 772: expected end of line
+    play audio sfx milli_whoosh volume 0.8
+                   ^
+
+File "game/script.rpy", line 786: expected end of line
+    play audio sfx sparkle volume 0.5
+                   ^
+
+File "game/script.rpy", line 800: expected end of line
+    play audio sfx punch
+                   ^
+
+File "game/script.rpy", line 819: expected end of line
+    play audio sfx boom
+                   ^
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 650.68s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2235, in execute
+    self.set()
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2253, in set
+    ns.set(self.varname, value)
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\defaultstore.py", line 101, in __setattr__
+    raise Exception('config.%s is not a known configuration variable.' % (name))
+Exception: config.channels is not a known configuration variable.
+
+While running game code:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+Exception: config.channels is not a known configuration variable.
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.24s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 656.65s
+Loading error handling took 0.02s
+Loading script took 0.08s
+Loading save slot metadata took 0.01s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2235, in execute
+    self.set()
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2253, in set
+    ns.set(self.varname, value)
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\defaultstore.py", line 101, in __setattr__
+    raise Exception('config.%s is not a known configuration variable.' % (name))
+Exception: config.channels is not a known configuration variable.
+
+While running game code:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+Exception: config.channels is not a known configuration variable.
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 659.10s
+Loading error handling took 0.02s
+Loading script took 0.08s
+Loading save slot metadata took 0.01s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2235, in execute
+    self.set()
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\ast.py", line 2253, in set
+    ns.set(self.varname, value)
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+  File "C:\Users\jfjel\Desktop\MST 350\Ren'Py\renpy-8.3.2-sdk\renpy\defaultstore.py", line 101, in __setattr__
+    raise Exception('config.%s is not a known configuration variable.' % (name))
+Exception: config.channels is not a known configuration variable.
+
+While running game code:
+  File "game/script.rpy", line 96, in script
+    define config.channels = ["music", "bg_sounds_channel", "sfx"]
+  File "renpy/common/000namespaces.rpy", line 34, in set
+    setattr(self.nso, name, value)
+Exception: config.channels is not a known configuration variable.
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 742.10s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 96: expected statement.
+    renpy.music.register_channel("bg_sounds_channel")
+                                                     ^
+
+File "game/script.rpy", line 97: expected statement.
+    renpy.music.register_channel("sfx")
+                                       ^
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 776.86s
+Loading error handling took 0.02s
+Loading script took 0.11s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 96: expected statement.
+    renpy.music.register_channel("bg_sounds_channel", sfx)
+                                                          ^
+
+File "game/script.rpy", line 97: expected statement.
+    renpy.music.register_channel("sfx", sfx)
+                                            ^
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1002.97s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\jfjel\\AppData\\Roaming/RenPy/backups\\Wizzcon-visual-novel':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.02s
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.13s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.01s
-Prepare screens took 0.04s
+Prepare screens took 0.03s
 Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
+Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.05s
+Interface start took 0.04s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
+primary display bounds: (0, 0, 3840, 2160)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 3060 Ti/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 560.94'
+Renderer: b'NVIDIA GeForce RTX 4090/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 565.90'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1027) drawable=(1920, 1027)
+Screen sizes: virtual=(1920, 1080) physical=(3024, 1701) drawable=(3024, 1701)
 Maximum texture size: 4096x4096
-controller: '030000004c050000cc09000000016800' 'PS4 Controller' 1
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1027) drawable=(1920, 1027)
+Screen sizes: virtual=(1920, 1080) physical=(3840, 2036) drawable=(3840, 2036)
 Maximum texture size: 4096x4096
-INFO:renpy_warp_service:closing websocket connection :40111
-INFO:renpy_warp_service:connection replaced, service exiting
-INFO:renpy_warp_service:service closed

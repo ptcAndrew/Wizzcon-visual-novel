@@ -140,7 +140,7 @@ label start:
 
 label inside:
 
-    play sound bg_noise volume 0.3 loop # adjust volume as needed
+    play sound bg_noise volume 0.2 loop # adjust volume as needed
 
     scene bg inside with dissolve
 
@@ -208,7 +208,7 @@ label where_to_go:
         
         "{i}I guess I better start checking this place out...{/i}"
     
-    elif locations_visited < 3:
+    if locations_visited < 3:
 
         show brochure with moveinbottom
 
@@ -393,7 +393,7 @@ label petting_zoo:
 
         "I'm seeking a wise and trustworthy wizarding companion so I can enter the Wizzowski Wizarding Open. If I and my teammate are to succeed, it will surely take all our combined wits.":
             $ f_thisslewood += 1
-                maudlin "A wise and prudent strategy! With wizardly cunning like that, I should hope to not be on the wrong end of your wand should our paths cross in the tournament."
+            maudlin "A wise and prudent strategy! With wizardly cunning like that, I should hope to not be on the wrong end of your wand should our paths cross in the tournament."
 
     jump maudlin_scene_2
 
@@ -559,8 +559,6 @@ label maudlin_scene_3:
 
     maudlin "Well my dear [maudlin_given_name], as much as I would like to prance and cavort with these fantastical beasts all the live-long day, my time here has almost come to an end..."
 
-    "Score: [f_thisslewood]"
-
     if f_thisslewood <= -3:
         $ plan_revealed = False
         # maudlin doesn't trust you
@@ -628,7 +626,9 @@ label maudlin_rescue:
     
     maudlin "Oh joyous day! Oh splendid tidings indeed! Barnabus was right about you, [maudlin_given_name]! Now then, go on and create a scene to distract these cursed beast jailers, and I will begin the ritual!"
     
+    play audio sparkle volume 0.7
     "Noticing a large pheldagriff standing next to one of the petting zoo attendants nearby, you cast a subtle, low-level electro-shock spell aimed directly at the beast's rump."
+    play audio punch
     "Instinctively, it kicks it's hind legs and connects with the attendant, sending them flying accross the room!"
     "The pheldagriff begins bucking, rampaging and fluttering around, attracting every staff member in the vicinity to try and calm it. Convention goers are panicking and only making things worse"
     
@@ -856,6 +856,7 @@ label millicent_scene_3:
     m "You'll be able to find me at the Rummaging Rat at Summoning Hour tomorrow."
     "You don't wait for her response before turning around and walking away."
     
+    play sound bg_noise volume 0.2 loop
     scene black with dissolve
     jump where_to_go
 

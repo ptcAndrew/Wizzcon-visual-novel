@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 224: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ locations_visited += 1
-    ^
+File "game/script.rpy", line 96: expected statement.
+    renpy.music.register_channel("bg_sounds_channel", sfx)
+                                                          ^
+
+File "game/script.rpy", line 97: expected statement.
+    renpy.music.register_channel("sfx", sfx)
+                                            ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Nov 30 19:36:27 2024
+Mon Dec  2 16:20:34 2024
