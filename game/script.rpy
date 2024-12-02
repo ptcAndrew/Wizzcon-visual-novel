@@ -16,23 +16,28 @@ image attendant positive:
 
 image attendant negative:
     zoom 0.7
-    ypos 1.3
+    ypos 1.0
     "attendant negative.png"
 
-image maudlin:
-    zoom 0.7
-    ypos 1.3
+image maudlin neutral:
+    zoom 0.4
+    ypos 0.9
     "maudlin neutral.png"
 
 image maudlin positive:
-    zoom 0.7
-    ypos 1.3
+    zoom 0.4
+    ypos 0.9
     "maudlin positive.png"
 
 image maudlin negative:
-    zoom 0.7
-    ypos 1.3
+    zoom 0.4
+    ypos 0.9
     "maudlin negative.png"
+
+image maudlin small:
+    zoom 0.15
+    ypos 0.7
+    "maudlin neutral.png"
 
 image shade:
     zoom 0.7
@@ -95,10 +100,7 @@ define audio.boom = "audio/boom.mp3"  # No credits needed ;)
 init -1 python:
     #global values for the friendship with each character
 
-    maudlin_given_name = ""
-
-    smolders_met = False
-    ravenstar_met = False
+    maudlin_given_name = "John Doe"
 
     f_thisslewood = 0
     f_smolders = 0
@@ -110,7 +112,7 @@ init -1 python:
     #where the player has visited
     locations_visited = 0
     zoo_visitied = False
-    casting_visiting = False
+    casting_visited = False
     expo_visited = False
 
 # The game starts here.
@@ -220,8 +222,8 @@ label where_to_go:
             hide brochure
             jump petting_zoo
 
-        "{color=#db4c04}Casting Ground{/color}" if casting_visiting == False:
-            $ casting_visiting = True
+        "{color=#db4c04}Casting Ground{/color}" if casting_visited == False:
+            $ casting_visited = True
             $ locations_visited += 1
             hide brochure
             jump casting_ground
@@ -237,19 +239,29 @@ label petting_zoo:
     
     scene black
     
-    "As you make your way accross the convention center towards the petting zoo, you spot a merry band of wiz-bards performing a jaunty tune. These magical musicians are the source of the music you've been hearing since you entered the convention. Their magic lets the bards' music extend to every room in the convention center."
+    "You make your way towards the petting zoo. As you walk through the convention center, you spot a merry band of wiz-bards performing a jaunty tune."
+    
+    "These magical musicians are the source of the music you've been hearing since you entered the convention. The bards' magic lets their music extend to every room in the convention center."
 
-    "You are distracted from the music as the familiarily pungent odor of farm animals starts to fill your nose. The petting zoo must be near."
+    "You are soon distracted from the music as the familiarily pungent odor of domesticated animals starts to fill your nose. The petting zoo must be near."
     
     scene petting zoo
 
     "You find the petting zoo, and catch glimpses of a variety of fantastical, if somewhat harmless, beasts and critters. There are more shapes, sizes and colors of them than you've ever seen."
 
-    "In the center of the largest pen, you spot a small green-haired gnome jubilantly frolicking around. His antics have the nearby petting zoo operators and conventiongoers shooting awkward looks his way, but he is unphased. Being a public spectacle enjoyer, you decide to enter the petting zoo for a closer look at this eccentric gnome"
+    "In the center of the largest pen, you spot a small green-haired gnome jubilantly frolicking around."
+    
+    show maudlin small
+
+    "His antics have the nearby petting zoo operators and conventiongoers shooting awkward looks his way, but he is unphased." 
+    
+    "Being a public spectacle enjoyer, you decide to enter the petting zoo for a closer look at this eccentric gnome"
 
     show maudlin neutral
+
+    "You notice the gnome has a jackelope familiar, who catches a whiff of you not long after you enter the pen."
     
-    "You notice the gnome has a jackelope familiar, who catches a whiff of not long after you enter the pen. As if through some deep connection, the gnome whips around to face the very moment your presence is clocked by the jackelope..."
+    "As if through some deep connection, the gnome whips around to face you the very moment your presence is clocked by the jackelope..."
 
     show maudlin positive
 
@@ -259,31 +271,32 @@ label petting_zoo:
 
     maudlin "And to whom do I have the pleasure of meeting on this beauteous day of wizzardly comradery!"
 
-    $ given_name = renpy.input("What name will you give to Maudlin?")
-    $ given_name = given_name.strip()  #
-    $ maudlin_given_name = given_name
+    $ maudlin_given_name = renpy.input("What name will you give to Maudlin?")
+    $ maudlin_given_name = maudlin_given_name.strip()
 
     show maudlin negative
 
-    maudlin "WHAT! [given_name]! Well that's the most obviously FAKE name I've ever heard. And don't try to tell me it isn't, because I'll have you know, I can read minds!"
+    maudlin "WHAT!? [maudlin_given_name]!? Well that's the most obviously FAKE name I've ever heard. And don't try to tell me it isn't, because I'll have you know, I can read minds!"
 
     maudlin "..."
 
     show maudlin neutral
 
-    maudlin "Ha! Just kidding my good chum. I can't read minds. In fact, I can't do much of anything magical other than zoomancy. Coming to these big wizard gatherings always makes me feel self-concious. But how could I stay away from this great gathering of beautiful beasts!"
+    maudlin "Ha! Just kidding my good chum. I can't read minds. In fact, I can't do much of anything magical other than zoomancy." 
+    
+    maudlin "Coming to these big wizard gatherings always makes me feel self-concious. But how could I stay away from this great gathering of beautiful beasts!"
     
     "Maudlin begins spinning in circles with his arms outstretched, humming along to the bards' tune. All the animals in the petting zoo seem to perk up."
     
-    Maudlin "Tell me, new friend, what is it that you seek amongst these hallowed halls?"
+    maudlin "Tell me, new friend, what is it that you seek amongst these hallowed halls?"
 
     menu:
         "I seek honor and glory in the heat of battle. I'm entering the Wizzowski Wizarding Open, and when I've crushed all those who oppose me with my awesome and deadly magic, I will surely be victorious!":
-            $ f_smolders -= 1
+            $ f_thisslewood -= 1
             jump maudlin_bad_first_impression
 
         "I'm seeking a wise and trustworthy wizarding companion so I can enter the Wizzowski Wizarding Open. If I and my teammate are to succeed, it will surely take all our combined wits.":
-            $ f_smolders += 1
+            $ f_thisslewood += 1
             jump maudlin_good_first_impression
 
     return
@@ -307,13 +320,17 @@ label maudlin_good_first_impression:
 
 label maudlin_scene_2:
     
-    "You hear the jackelope Barnabus make a squeaking sound that instantly makes Maudlin's ears perk up. He leans down to the critter and listens closely to it's sounds, then whispers something in it's ear before returning to face you."
+    "You hear Maudlin's jackelope, Barnabus, make a squeaking sound that instantly causes Maudlin's ears perk up."
+    
+    "He leans down to the critter and listens closely to it's sounds, then whispers something in it's ear before returning to face you."
 
     show maudlin neutral
 
-    maudlin "If you hope to succeed in the Open, you'll need a potent and effective companion. I believe that I, the magnanimous Maudlin, could be such a companion! But first, I must of course make sure you meet MY very discerning requirements!"
+    maudlin "If you hope to succeed in the Open, you'll need a potent and effective companion. I believe that I, the magnanimous Maudlin, could be such a companion!"
+    
+    maudlin "But first, I must of course make sure you meet MY very discerning requirements!"
 
-    maudlin "I'm curious, [given_name], what do you know of zoomancy?"
+    maudlin "I'm curious, [maudlin_given_name], what do you know of zoomancy?"
 
     menu:
         "Zoomancy is the school of magic that grants dominion over all of the feywilde beasts of our realm.":
@@ -333,7 +350,11 @@ label maudlin_scene_2:
 
     show maudlin negative
 
-    maudlin "There are those would look down upon the humble arcana with which I ply my trade. I've heard things like 'Why talk to animals? It's not like they have anything interesting worth saying', or 'Why summon some dumb animal when I can just summon a massive fireball'..."
+    maudlin "There are those who would look down upon the humble arcana with which I ply my trade."
+    
+    maudlin "I've heard things like 'Why talk to animals? It's not like they have anything interesting worth saying'..."
+    
+    maudlin "...or 'Why summon some dumb animal when I can just summon a massive fireball'..."
         
     maudlin "...or even 'Who is that weird green guy hugging all our sheep?'. No one seems to think my magic has any value, but they're WRONG!"
 
@@ -341,9 +362,11 @@ label maudlin_scene_2:
 
     maudlin "The natural world holds so many treasures. Every beast, from the smallest insectoids to the mightiest Megalomightisaurodons, is a valuable part of the collective soul of our world"
 
-    "You notice Barnabus make another subtle signal to Maudlin. You notice that some of petting zoo operators are shifting around after having sitting idly nearby since you arrived."
+    "You catch Barnabus making another subtle signal to Maudlin. You also notice some petting zoo operators shifting around after having been sat idly nearby since you arrived."
 
-    maudlin "Zoomancers are closely attuned to the natural world. Barnabus here and I have been a bonded pair since I was just a wee gnomeling, barely big enough to frolic through the microgreen pastures of my homeland. We have an breakable trust and understanding! If we are to be companions in the Wizarding Open, Barnabus will need to approve. Could I ask you to let him get a good, long whiff of you? He's harmless, I assure you!"
+    maudlin "Zoomancers are closely attuned to the natural world. Barnabus here and I have been a bonded pair since I was just a wee gnomeling, barely big enough to frolic through the microgreen pastures of my homeland." 
+    
+    maudlin "We have an unbreakable trust and understanding! If we are to be companions in the Wizarding Open, Barnabus will need to approve. Could I ask you to let him get a good, long sniff of you? He's harmless, I assure you!"
     
     menu:
         "What?! No way! I'm not letting that little monster get anywhere near me.":
@@ -369,7 +392,7 @@ label maudlin_scene_2:
 
                 "I'm ... uh ... also allergic to having zoomancy spells cast on me...?":
                     show maudlin neutral
-                    maudlin "Ah, got the zoomancitis eh? By ex-wife had the same thing. Oh well, I guess no getting whiffed for you!"
+                    maudlin "Ah, got the zoomancitis eh? By ex-wife had the same thing. Oh well, I guess no getting sniffed for you!"
                     jump maudlin_scene_3
 
                 "'Danderbane'?? What kind of ridiculous spell is that? Forget it!":
@@ -384,7 +407,7 @@ label maudlin_scene_2:
             menu:
                 "Sorry, that sounds a little bit to intimate for me. Maybe once we get to know each other better...":
                     # no change to opinion
-                    "Fair enough, [given_name]. I shall honor your desires. But Barnabus will surely catch a whiff of you sooner or later!"
+                    "Fair enough, [maudlin_given_name]. I shall honor your desires. But Barnabus will surely catch a good whiff of you sooner or later!"
                     jump maudlin_scene_3
 
                 "Very well, whiff away.":
@@ -399,17 +422,21 @@ label maudlin_danderbane:
     show maudlin positive
     
     maudlin "Alrighty then, it's SPELL CASTING TIME!"
-    maudlin " ~ Abracadoodle and Scoodlydee ~ Get all dander away from thee! ~ "
+    maudlin " ~ Abracadoodle and Scoodlydee ~ "
+    maudlin " ~ Get all dander away from thee! ~ "
 
     "As Maudlin's unhinged magic words take effect, you start to feel an electrifying tingle in the air around you."
-    "Then, you feel a sudden zap and see a brilliant flash of light, and feel that tingling sensation flow beneath your skin..."
+    "Then, you feel a sudden jolt of energy and see a brilliant flash of light, and a tingling sensation flows beneath your skin..."
     "When your senses finally return to you, you look around and see a ring of hair on the floor around your feet. Maudlin's spell has caused all your hair to fall out!"
     
     show maudlin neutral
     maudlin "...Well uhh, looks like this spell needs some work! I've only ever tested it on other gnomes, not whatever it is you are."
 
     show maudlin positive
-    maudlin "The good news is that Barnabus little sniff test is a moot point now. We wanted to know if we could trust you, but I think you've earned a free pass. Sorry about your hair! If it makes you feel any better, I think you look rather dashing with no eyebrows!"
+    maudlin "The good news is that our little sniff test is a moot point now. We wanted to know if we could trust you, but I think you've earned a free pass."
+    
+    maudlin "Sorry about your hair! If it makes you feel any better, I think you look rather dashing with no eyebrows!"
+    
     jump maudlin_scene_3
 
 label maudlin_sniff:
@@ -417,16 +444,16 @@ label maudlin_sniff:
 
     show maudlin neutral
 
-    maudlin "I have an important question for you, [given_name]. Are there any other wizards you are considering as your partner for the Open?"
+    maudlin "I have an important question for you, [maudlin_given_name]. Are there any other wizards you are considering as your partner for the Open?"
     
     menu:
         "Yes":
             $ sniff_response = True
-            if smolders_met == True or ravenstar_met == True:
+            if casting_visited == True or expo_visited == True:
                 show maudlin positive
-                if smolders_met == True and ravenstar_met == True:
+                if casting_visited == True and expo_visited == True:
                     maudlin "Delightful! Barnabus informed me he smelled traces of both a half-elf and a dragonborn on you. We greatly appreciate you being forthcoming with the truth. Honesty is the best policy after all!"
-                elif smolders_met == True:
+                elif casting_visited == True:
                     maudlin "Delightful! Barnabus informed me he smelled traces of a dragonborn on you. We greatly appreciate you being forthcoming with the truth. Honesty is the best policy after all!"
                 else:
                     maudlin "Delightful! Barnabus informed me he smelled traces of a half-elf on you. We greatly appreciate you being forthcoming with the truth. Honesty is the best policy after all!"
@@ -437,7 +464,7 @@ label maudlin_sniff:
 
         "No":
             $ sniff_response = False
-            if smolders_met == True or ravenstar_met == True:
+            if casting_visited == True or expo_visited == True:
                 show maudlin negative
                 maudlin "Bah! I might be small and ridiculous, but I know when I'm being lied to! Barnabus can smell those other wizards you've been cavorting with all over you. I don't know how you can expect us to function as a team when I can't get an honest answer to a simple question from you."
                 $ f_thisslewood -= 1
@@ -451,33 +478,45 @@ label maudlin_sniff:
 label maudlin_scene_3:
     show maudlin neutral
 
-    maudlin "Well my dear [given_name], as much as I would like to prance and cavort with these fantastical beasts all the live-long day, my time here has almost come to an end..."
+    maudlin "Well my dear [maudlin_given_name], as much as I would like to prance and cavort with these fantastical beasts all the live-long day, my time here has almost come to an end..."
+
+    "Score: [f_thisslewood]"
 
     if f_thisslewood <= -3:
         $ plan_revealed = False
         # maudlin doesn't trust you
-        
+        maudlin "...so if you'll excuse me, I'll be returning my most important work!"
+        "Maudlin beings skipping too and fro and singing a song in a language you don't understand. The petting zoos' creatures appear to be moving in time with him."
+        jump maudlin_no_rescue
     else:
         $ plan_revealed = True
         # maudlin wants your help with his plan
         maudlin "...but perhaps a wizard of your stature might care to aid me in a noble cause of the utmost importance."
         maudlin "You see, I've come to this so called petting zoo with ulterior motives. As a zoomancer, I can feel the emotions of the wild creatures of our world."
         show maudlin negative
-        maudlin "And let me tell you, the beasts and critters you see here experience deep pain and suffering daily! They are packed into tight quarters, given minimal food of questionable nutritional value, and paraded about to be gawked at and groped by the unwashed masses. It's an affront to nature, and I intend to stop it!"
+        maudlin "And let me tell you, the beasts and critters you see here experience deep pain and suffering daily!"
+        maudlin "They are packed into tight quarters, given minimal food of questionable nutritional value, and paraded about to be gawked at and groped by the unwashed masses."
+        maudlin "It's an affront to nature, and I intend to stop it!"
         show maudlin neutral    
-        maudlin "I have a plan to rescue all these creatures, but I'll need your help. Could you distract the petting zoo staff momentarily? I need time to perform the ritual for my ultiamte spell: 'Mass Beast Teleportation'! With it, all of these creatures will be safely transported to the Thisslewood Family Beast and Critter Sanctuary, my family's nature preserve."
+        maudlin "I have a plan to rescue all these creatures, but I'll need your help. Could you distract the petting zoo staff momentarily?"
+        maudlin "I need time to perform the ritual for my ultiamte spell: 'Mass Beast Teleportation'!"
+        maudlin "With it, all of these creatures will be safely transported to the Thistlewood Beast and Critter Sanctuary, my family's nature preserve."
+        maudlin "These petting zoo goons are in the midst of a shift change — the perfect time to strike!"
         menu:
             "Sure, I'll help you with your scheme! Let's save the animals!":
-                $ f_thisslewood += 2
+                $ f_thisslewood += 3
                 jump maudlin_rescue
             "Sorry Maudlin, I don't think I can get involved in this. But your secret plan is safe with me":
                 maudlin "I see..."
-                maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help. I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect. Come and find me in the park accross the street from the convention tomorrow if you want to find out how things went!"
+                maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help."
+                maudlin "I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect."
+                maudlin "Come and find me in the park accross the street from the convention tomorrow if you want to find out how things went!"
                 jump maudlin_no_rescue
             "You can't just zap away the petting zoo! These creatures are the property of Wizzcon!":
                 $ f_thisslewood -= 1
                 show maudlin negative
-                maudlin "Keep your voice down you buffoon! If you don't care to take part then so be it, but I'll be quite upset if you ruin this for me. And how dare you refer to these noble beasts as property. They're living things!"
+                maudlin "Keep your voice down you buffoon! If you don't care to take part then so be it, but I'll be quite upset if you ruin this for me."
+                maudlin "And how dare you refer to these noble beasts as property. They're living things!"
                 if f_thisslewood >= 0:
                     maudlin "You might not be cut out to help me here, but if you still want to enter the Wizarding Open together, come find me at the park accross from the convention center tomorrow. Now beat it!"
                 else:
@@ -487,27 +526,36 @@ label maudlin_scene_3:
 label maudlin_no_rescue:
     if plan_revealed:
         "You leave Maudlin to execute his daring rescure operation."
-
-    "As you return to the common areas of the convention center and that farm animal smell disappates, you hear a loud bang and a bright flash coming from the petting zoo."
-    if plan_revealed:
-        "It would appear Maudlin found some success casting 'Mass Animal Teleport', though it would appear the spell didn't have the effective range he had intended..."
-    
-    "You can see that the animals previously housed in the petting zoo area have now been spread out to all corners of the convention center. Most of them hardly seem phased by the change, but you do see a group of Wiz-gaurds make their way towards the petting zoo hall. Hopefully Maudlin has a plan to escape capture!"
+    else:
+        "You leave Maudlin to his odd ritual and make your way out of the petting zoo."
 
     scene black with dissolve
+
+    "As you return to the common area of the convention center and the farm animal smell disappates, you hear a loud bang and a bright flash coming from the petting zoo."
+    if plan_revealed:
+        "It would appear Maudlin found some success casting 'Mass Animal Teleport', though it seems the spell didn't have the effective range he had intended..."
+    
+    "Moments later, you notice that the animals previously housed in the petting zoo area have now been spread out to all corners of the convention center."
+    
+    "Most of them hardly seem phased by the change, but you do see a group of Wiz-gaurds make their way towards the petting zoo hall."
+    
+    if plan_revealed:
+        "Hopefully Maudlin has a plan to escape capture!"
+
     jump where_to_go
 
 label maudlin_rescue:
     show maudlin positive
     
-    maudlin "Oh joyous day! Oh splendid tiding indeed! Barnabus was right about you, [given_name]! Now then, go on and create a scene to distract these cursed beast jailers, and I will begin the ritual!"
+    maudlin "Oh joyous day! Oh splendid tidings indeed! Barnabus was right about you, [maudlin_given_name]! Now then, go on and create a scene to distract these cursed beast jailers, and I will begin the ritual!"
     
-    "Noticing a large pheldagriff standing next to one of the petting zoo attendants nearby, you cast a subtle, low-level electro-shock spell arimed directly at the beast's rump. Instinctively, it kicks it's hind legs instintively and connects with the attendant, sending them flying accross the room."
-    "The pheldagriff begins bucking, rampaging and fluttering around, attracting every staff member in the vicinity to try and calm it down. Convention goers are panicking and only making things worse"
+    "Noticing a large pheldagriff standing next to one of the petting zoo attendants nearby, you cast a subtle, low-level electro-shock spell aimed directly at the beast's rump."
+    "Instinctively, it kicks it's hind legs and connects with the attendant, sending them flying accross the room!"
+    "The pheldagriff begins bucking, rampaging and fluttering around, attracting every staff member in the vicinity to try and calm it. Convention goers are panicking and only making things worse"
     
     maudlin "The ritual is almost complete! Next stop, FREEDOOOOOM!"
 
-    "As Maudlin cries out in victory, a loud bang a bright flash fill the room and completely overwhelm you"
+    "As Maudlin cries out in victory, a loud bang and a bright flash fill the room, completely overwhelming you"
     "When you come to your senses, Maudlin, Barnabus, and all the petting zoo's inhabitants are gone. You find a note in your pocket that says..."
     "{i}If you wish to find the same success in the tournament as we did with our fun little rescue mission, come find me at the park accross from the convention center tomorrow! - Maudlin Thisslewood{/i}"
 
