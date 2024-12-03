@@ -98,6 +98,7 @@ define audio.milli_whoosh = "audio/fireball_whoosh.mp3"  # Credits: Sound Effect
 define audio.sparkle = "audio/sparkling_star.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=99656">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=99656">Pixabay</a>
 define audio.punch = "audio/punch.mp3"  # Credits: Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=41105">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=41105">Pixabay</a>
 define audio.boom = "audio/boom.mp3"  # No credits needed ;)
+
 init -1 python:
     #global values for the friendship with each character
 
@@ -123,6 +124,8 @@ INTRO
 """
 
 label start:
+    play music "wizzcon theme.mp3"
+    queue music "wizzcon theme loop.mp3"
 
     "{cps=30}The time has come for the 350th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for 3 days of magical extravaganza!"
 
@@ -333,7 +336,7 @@ MAUDLIN THISTLEWOOD ARC
 
 label petting_zoo:
     
-    scene black
+    scene black with dissolve
     
     "You make your way towards the petting zoo. As you walk through the convention center, you spot a merry band of wiz-bards performing a jaunty tune."
     
@@ -341,7 +344,7 @@ label petting_zoo:
 
     "You are soon distracted from the music as the familiarily pungent odor of domesticated animals starts to fill your nose. The petting zoo must be near."
     
-    scene petting zoo
+    scene petting zoo with dissolve
 
     "You find the petting zoo, and catch glimpses of a variety of fantastical, if somewhat harmless, beasts and critters. There are more shapes, sizes and colors of them than you've ever seen."
 
