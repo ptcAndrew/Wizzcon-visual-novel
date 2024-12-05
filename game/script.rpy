@@ -171,7 +171,7 @@ label dialogue1:
 
     a "If you're into fantasical creatures, you've {i}got{/i} to check out the {color=#00b347}Petting Zoo.{/color} {w}I heard they have a baby Taratooth there this year, so cute!"
 
-    a "For the battlemage type, the {color=#db4c04}Casting Ground{/color} is down the hall. {w}If you're thinking of joining the (WIZARD BATTLE), that's the place to go. Just watch your head for rouge fireballs, haha. "
+    a "For the battlemage type, the {color=#db4c04}Casting Ground{/color} is down the hall. {w}If you're thinking of joining the Wizzowski Wizarding Open, that's the place to go. Just watch your head for rouge fireballs, haha. "
 
     a "Finally, the {color=#946bc9}Artifacts Expo{/color} has magical items from all over the world on display! {w}Some of the things in there really give me the creeps..."
 
@@ -187,7 +187,7 @@ label dialogue2:
 
     a @ negative "..."
 
-    a "Well, the (WIZARD BATTLE) has always been a doubles event... {w}but I'm sure you can find someone looking to join you!"
+    a "Well, the Wizzowski Wizarding Open has always been a doubles event... {w}but I'm sure you can find someone looking to join you!"
 
     a "If you're looking for someone who can handle creatures, the {color=#00b347}Petting Zoo{/color} is your best bet. The rules do allow for one animal partner after all."
 
@@ -260,7 +260,7 @@ label ending:
         "...you see a small green figure surrounded by beasts of all shapes and sizes..."
         "...together, they move with the grace and accuracy of an orchestra..."
         "...shadowy figures opposing the green figure and it's mighty menagerie are overwhelmed..."
-        "...then, with a sudden flash and whiff of barnyard smell, you awaken"
+        "...then, with a sudden flash and whiff of barnyard smell, you awaken."
     elif f_smolders > f_thisslewood and f_smolders > f_ravenstar:
         # best result is millicent
         "...you see a large winged figure towering over you, while shadowed masses seem to surround you..."
@@ -272,22 +272,22 @@ label ending:
         "...you find yourself surrounded by headstones, under an impossibly grey and colorless sky..."
         "...you catch the presence of a slender, graceful figure out of the corner of your eye..."
         "...you try to call out to them, but the very air around you seems to swallow up your voice..."
-        "...the slim figure floats towards you as you struggle to speak, and with a gentle thrust of their palm on your chest, you awake suddenly with a start and a deep breath"
+        "...the slim figure floats towards you as you struggle to speak, and with a gentle thrust of their palm on your chest, you awake suddenly with a start and a deep breath."
     else:
         # there was a tie
         "...you are suddenly surrounded by an impossibly large crowd seated in a colosseum. The excitement of this audience is palpable..."
         "...you see that you are square in the center of the colosseum's combat zone, and from every wall a shadowy figure seems to appear..."
         "...fear overtakes your heart, and you can't help but think that your end is surely near..."
-        "...but then, a hand touches your shoulder. You look around and see a familiar face, but you suddenly awaken before you can fully recognize them"
+        "...but then, a hand touches your shoulder. You look around and see a familiar face, but you suddenly awaken before you can fully recognize them."
     
     "You see the morning sun peaking through your window. It is the day of the Wizzowski Wizarding Open, and it's time for you to recruit your partner."
 
-    "You arrive back to the Wizzcon grounds just in time to hear an annoucement boom across the convention center"
+    "You arrive back to the Wizzcon grounds just in time to hear an annoucement boom across the convention center."
 
     speaker "I hope everyone’s been having a magical time so far because it’s almost time for our main event the Wizzowski Wizarding Open!"
     speaker "Signups close soon so be sure to come drop by right away!"
 
-    m "There's only time to seek out one potential partner before the signups close. I'll have to choose carefully"
+    m "There's only time to seek out one potential partner before the signups close. I'll have to choose carefully."
 
     # good and bad endings for each partner
     
@@ -295,9 +295,9 @@ label ending:
         "{i}Who should I choose as my partner...?{/i}"
 
         "Maudlin Thistlewood":
-            "You head to the Rummaging Rat Plaza in search of Maudlin"
-            "Tracking him down isn't easy, considering both his short stature and his need to lay low after the petting zoo incident yesterday"
-            "Luckily, you spot him sitting up in a tree on the outskirts of the plaza sharing an Apple with Barnabus"
+            "You head to the Rummaging Rat Plaza in search of Maudlin."
+            "Tracking him down isn't easy, considering both his short stature and his need to lay low after the petting zoo incident yesterday."
+            "Luckily, you spot him sitting up in a tree on the outskirts of the plaza sharing an Apple with Barnabus."
             if f_thisslewood > 0:
                 jump maudlin_good_ending
             else:
@@ -354,7 +354,7 @@ label petting_zoo:
 
     "His antics have the nearby petting zoo operators and conventiongoers shooting awkward looks his way, but he is unphased." 
     
-    "Being a public spectacle enjoyer, you decide to enter the petting zoo for a closer look at this eccentric gnome"
+    "Being a public spectacle enjoyer, you decide to enter the petting zoo for a closer look at this eccentric gnome."
 
     show maudlin neutral
 
@@ -442,7 +442,7 @@ label maudlin_scene_2:
 
     show maudlin neutral
 
-    maudlin "The natural world holds so many treasures. Every beast, from the smallest insectoids to the mightiest Megalomightisaurodons, is a valuable part of the collective soul of our world"
+    maudlin "The natural world holds so many treasures. Every beast, from the smallest insectoids to the mightiest Megalomightisaurodons, is a valuable part of the collective soul of our world."
 
     "You catch Barnabus making another subtle signal to Maudlin. You also notice some petting zoo operators shifting around after having been sat idly nearby since you arrived."
 
@@ -633,11 +633,11 @@ label maudlin_rescue:
     "Noticing a large pheldagriff standing next to one of the petting zoo attendants nearby, you cast a subtle, low-level electro-shock spell aimed directly at the beast's rump."
     play audio punch
     "Instinctively, it kicks it's hind legs and connects with the attendant, sending them flying accross the room!"
-    "The pheldagriff begins bucking, rampaging and fluttering around, attracting every staff member in the vicinity to try and calm it. Convention goers are panicking and only making things worse"
+    "The pheldagriff begins bucking, rampaging and fluttering around, attracting every staff member in the vicinity to try and calm it. Convention goers are panicking and only making things worse."
     
     maudlin "The ritual is almost complete! Next stop, FREEDOOOOOM!"
 
-    "As Maudlin cries out in victory, a loud bang and a bright flash fill the room, completely overwhelming you"
+    "As Maudlin cries out in victory, a loud bang and a bright flash fill the room, completely overwhelming you."
     "When you come to your senses, Maudlin, Barnabus, and all the petting zoo's inhabitants are gone. You find a note in your pocket that says..."
     "{i}If you wish to find the same success in the tournament as we did with our fun little rescue mission, come find me at the park accross from the convention center tomorrow! - Maudlin Thisslewood{/i}"
 
