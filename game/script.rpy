@@ -303,11 +303,17 @@ label ending:
             else:
                 jump maudlin_bad_ending
         "Millicent Smolders":
+            "You are chilling at one of the Rummaging Rat's many public benches when Millicent stalks towards you."
+            "{i}Well, hey. She saved you the effort of trying to find her.{/i}"
             if f_smolders > 0:
                 jump millicent_good_ending
             else:
                 jump millicent_bad_ending
         "Shadé Ravenstar":
+            "You're sitting patiently at onr of the Rummaging Rat's many public benches, keeping your eye on the crowd."
+            "You're trying to catch a glimpse of Shadé. You hope he took you up on the invitation and will come be your partner."
+            "It's getting close to the sign-up deadline and you're starting to lose hope."
+            "You close your eyes and make a deep regretful sigh. You open them and Shadé is standing right in front of you."
             if f_ravenstar > 0:
                 jump shade_good_ending
             else:
@@ -320,12 +326,47 @@ label maudlin_good_ending:
 label maudlin_bad_ending:
 
 label millicent_good_ending:
+    millicent "You were a worthy opponent. I shall be your partner for the Wizzowski Wizarding Open."
+    m "Oh! That's—"
+    millicent "We shall roast our enemies like pigs over a fire!{w} They will regret ever facing us!{w} With your wit and my strenth we shall burn them to the ground!"
+    m "That's the spirit!"
+    "She grabs your arm and tugs you up."
+    millicent "Come now, wizard. Let us cast our names into the Wizarding Open. No time to waste!"
+    "She drags you behind her to the sign up desks."
 
 label millicent_bad_ending:
+    millicent "I can never face the battle with the likes of you!{w} You are an embarrassment to wizard-ome.{w} You should be ashamed!"
+    m "You could just say no. You don't have to be mean about it."
+    millicent "Pathetic! You won't make it past the first round. You thought I'd join you? How can I join such a weakling?"
+    "She violently turns around and stalks off."
 
 label shade_good_ending:
+    m "I'm so glad you chose to show up!"
+    shade "I'm only here to spectate."
+    m "Are you sure? I can use a partner."
+    "Shadé stares at you with that typical way that makes you want to squirm."
+    "But why is he here if he's not planning on joining you?"
+    shade "..."
+    shade "Alright."
+    shade "But only because you impressed me yesterday."
+    m "You won't regret it."
+    shade "I wouldn't get your hopes up. I don't think we're going to win."
+    m "No, no. I'm optimistic. This will be the year!"
+    "You both head off to the sign up desk."
+
 
 label shade_bad_ending:
+
+    m "I'm so glad you chose to show up."
+    shade "This is where all the activity is."
+    m "True, true. Will you be participating?"
+    shade "I'm only here to spectate."
+    m "Come ooon. Join me."
+    m "I need a partner. I'm going to win it this year! I think we can do it together."
+    "Shadé stares at you until it becomes super awkward. You clear your throat and shift your weight uncomfortably."
+    m "Alright alright, I'll leave you be."
+
+
 
 
 """
