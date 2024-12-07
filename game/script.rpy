@@ -103,6 +103,7 @@ init -1 python:
     #global values for the friendship with each character
 
     maudlin_given_name = "John Doe"
+    
 
     f_thisslewood = 0
     f_smolders = 0
@@ -117,6 +118,10 @@ init -1 python:
     casting_visited = False
     expo_visited = False
 
+    #who is your partner if you get one at the end
+    chosen_partner = ""
+    team_name = "Wizzards of Oz"
+
 # The game starts here.
 
 """
@@ -127,7 +132,7 @@ label start:
     play music "wizzcon theme.mp3"
     queue music "wizzcon theme loop.mp3"
 
-    "{cps=30}The time has come for the 350th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for 3 days of magical extravaganza!"
+    "{cps=30}The time has come for the 350th annual {w}{size=*2}{cps=*0.25}WIZZCON{/cps}{/size} {p}where wizards, witches, mages, and sorcerers from all over the world come together for a weekend of magical extravaganza!"
 
     scene bg outside with dissolve
 
@@ -239,13 +244,13 @@ label where_to_go:
 
     elif locations_visited == 3:
 
-        jump ending
+        jump dream
 
 """
 ENDING
 """
 
-label ending:
+label dream:
 
     scene black
 
@@ -280,21 +285,28 @@ label ending:
         "...fear overtakes your heart, and you can't help but think that your end is surely near..."
         "...but then, a hand touches your shoulder. You look around and see a familiar face, but you suddenly awaken before you can fully recognize them."
     
+    jump ending
+
+label ending:
+    
     "You see the morning sun peaking through your window. It is the day of the Wizzowski Wizarding Open, and it's time for you to recruit your partner."
 
-    "You arrive back to the Wizzcon grounds just in time to hear an annoucement boom across the convention center."
+    scene bg outside with dissolve
 
-    speaker "I hope everyone’s been having a magical time so far because it’s almost time for our main event the Wizzowski Wizarding Open!"
-    speaker "Signups close soon so be sure to come drop by right away!"
+    "You arrive to the Wizzcon grounds just in time to hear an annoucement boom across the convention center."
 
-    m "There's only time to seek out one potential partner before the signups close. I'll have to choose carefully."
+    speaker "Greeting witches and wizards alike! I hope everyone’s been having a magical time!" 
+    speaker "It’s almost time for our main event, {p}{size=+20}the Wizzowski Wizarding Open!{/size}"
+    speaker "Signups close soon, so be sure to come drop by right away!"
+
+    m "{i}There's only time to seek out one potential partner before the signups close. I'll have to choose carefully.{/i}"
 
     # good and bad endings for each partner
     
     menu:
         "{i}Who should I choose as my partner...?{/i}"
 
-        "Maudlin Thistlewood":
+        "{color=#34eb77}Maudlin Thistlewood{/color}":
             "You head to the Rummaging Rat Plaza in search of Maudlin."
             "Tracking him down isn't easy, considering both his short stature and his need to lay low after the petting zoo incident yesterday."
             "Luckily, you spot him sitting up in a tree on the outskirts of the plaza sharing an Apple with Barnabus."
@@ -302,18 +314,23 @@ label ending:
                 jump maudlin_good_ending
             else:
                 jump maudlin_bad_ending
-        "Millicent Smolders":
+        "{color=#810e06}Millicent Smolders{/color}":
             "You are chilling at one of the Rummaging Rat's many public benches when Millicent stalks towards you."
             "{i}Well, hey. She saved you the effort of trying to find her.{/i}"
             if f_smolders > 0:
                 jump millicent_good_ending
             else:
                 jump millicent_bad_ending
-        "Shadé Ravenstar":
+        "{color=#6b357c}Shadé Ravenstar{/color}":
             "You're sitting patiently at one of the Rummaging Rat's many public benches, keeping your eye on the crowd."
-            "You're trying to catch a glimpse of Shadé. You hope he took you up on the invitation and will come be your partner."
+            "You're trying to catch a glimpse of Shadé. You hope they took you up on the invitation and will come be your partner."
             "It's getting close to the sign-up deadline and you're starting to lose hope."
-            "You close your eyes and make a deep regretful sigh. You open them and Shadé is standing right in front of you."
+            "You close your eyes and make a deep regretful sigh."
+            scene black with dissolve
+            $ renpy.pause(2.0)
+            scene bg outside with dissolve
+            show shade with dissolve
+            "You open them and Shadé is standing right in front of you."
             if f_ravenstar > 0:
                 jump shade_good_ending
             else:
@@ -323,36 +340,59 @@ label ending:
 
 label maudlin_good_ending:
 
+    $ chosen_partner = "Maudlin"
+    jump final_good_ending
+
 label maudlin_bad_ending:
 
+
+
+    jump final_bad_ending
+
 label millicent_good_ending:
+    show millicent with dissolve
     millicent "You were a worthy opponent. I shall be your partner for the Wizzowski Wizarding Open."
     m "Oh! That's—"
+    show millicent positive
     millicent "We shall roast our enemies like pigs over a fire!{w} They will regret ever facing us!{w} With your wit and my strenth we shall burn them to the ground!"
     m "That's the spirit!"
+    show millicent
     "She grabs your arm and tugs you up."
     millicent "Come now, wizard. Let us cast our names into the Wizarding Open. No time to waste!"
     "She drags you behind her to the sign up desks."
 
+    $ chosen_partner = "Millicent"
+    jump final_good_ending
+
 label millicent_bad_ending:
+    show millicent negative with dissolve
     millicent "I can never face the battle with the likes of you!{w} You are an embarrassment to wizard-ome.{w} You should be ashamed!"
     m "You could just say no. You don't have to be mean about it."
     millicent "Pathetic! You won't make it past the first round. You thought I'd join you? How can I join such a weakling?"
     "She violently turns around and stalks off."
+    hide millicent with dissolve
+
+    jump final_bad_ending
 
 label shade_good_ending:
     m "I'm so glad you chose to show up!"
     shade "I'm only here to spectate."
     m "Are you sure? I can use a partner."
     "Shadé stares at you with that typical way that makes you want to squirm."
-    "But why is he here if he's not planning on joining you?"
+    "{i}But why are they here if they're not planning on joining you?{i}"
     shade ". . ."
     shade "Alright."
+    show shade positive
     shade "But only because you impressed me yesterday."
     m "You won't regret it!"
+    show shade
     shade "I wouldn't get your hopes up. I don't think we're going to win."
     m "No, no. I'm optimistic. This will be the year!"
     "You both head off to the sign up desk."
+
+
+    $ chosen_partner = "Shadé"
+    jump final_good_ending
 
 
 label shade_bad_ending:
@@ -361,13 +401,115 @@ label shade_bad_ending:
     shade "This is where all the activity is."
     m "True, true. Will you be participating?"
     shade "I'm only here to spectate."
-    m "Come ooon. Join me."
+    m "Come onnnnn. Join me."
+    shade "..."
     m "I need a partner. I'm going to win it this year! I think we can do it together."
+    show shade negative
     "Shadé stares at you until it becomes super awkward. You clear your throat and shift your weight uncomfortably."
     m "Alright alright, I'll leave you be."
 
+    jump final_bad_ending
 
 
+label final_good_ending:
+
+    scene bg inside
+
+    "Frantically racing inside the convention center, you look for the desk with the attendant that helped you yesterday."
+
+    a "Attention everyone! This is the last call to signup for the Wizzowski Wizarding Open!"
+
+    "Rushing through the crowd to the sound of their voice, you finally arrive at the desk."
+
+    show attendant with dissolve
+
+    a "Hey, nice to see you again! Have you found a partner for the tournament?"
+
+    m "As a matter of fact, {w}I have."
+
+    show attendant positive
+    
+    a "Well that's great! Now all I need from you is a team name, and we'll send you right into the competitor's area!"
+
+    "You turn toward [chosen_partner] with a smug grin. They give you a begruding nod."
+
+    show attendant
+    $ team_name = renpy.input("What is your team name?")
+
+    show attendant positive
+    a "Well [team_name], you're all set! Just head down that marked hallway and prepare for your match. Good luck!"
+    
+    hide attendant with dissolve
+
+    "The attendant points you toward a corridor on the edge of the main hall. [chosen_partner] tailing behind you, the excitement within you overflowing like a bubbling cauldron."
+
+    "At the end of the hallway, you pull back a curtain into what is most certainly the competitor waiting area."
+
+    "It seems that the first battles have already begun, the sounds of sparks cracking and a roaring crowd muffled by the building walls."
+
+    "You glance around the room at your soon-to-be opponents. Robes, hats, and wands of any imaginable type belonging to wizards awaiting their chance of glory."
+
+    "All of sudden, you here someone call out..."
+
+    a "Alright, [team_name], you're up next!"
+
+    "This is it."
+
+    scene bg arena
+
+    "You and [chosen_partner] follow the attendant through an arched gate, and at the end of the tunnel you see the entrance to the arena."
+
+    a "Good luck out there!"
+
+    "The arena gate opens and the sounds of the crowd flood the tunnel like a tidal wave."
+    
+    "The crowd grows louder and louder as you walk into the arena. Spotlights flash across your eyes and the cheer of the crowd turns into a formless muffle."
+
+    speaker "...and our newest challengers are [team_name]! They seem like newcomers to the Wizzowski Wizarding Open, but that's no reason to count them out! {p}May the best wizards win!"
+
+    "You take a moment to look at your opponents on the opposite end of the arena. {p}But it doesn't matter what spells they throw at you, or what strange magic they may be masters of."
+
+    "Glancing over at [chosen_partner], reflecting on how not a day prior you were complete strangers, and are now working together in the wizarding fight of your life..."
+
+    "...you know you have what it takes to win."
+
+    scene white with dissolve
+    $ renpy.pause(2.0)
+
+    "It's time to get down to Wizz-ness."
+
+    return 
+
+label final_bad_ending:
+
+    "{i}I- i just blew it.{/i}"
+
+    "{i}Surely there's still time to find someone else...{/i}"
+
+    scene bg inside
+
+    "Heading inside the convention center, you desperately ask any wizards who pass by."
+    "Unfortunately, all of them either already have a partner or are simply not interested."
+
+    "Your hopes draining by the second, you suddenly hear a voice echo through the convention hall."
+
+    speaker "And with that, our 350th Wizzowski Wizarding Open is officially under way! Please make your way to the Conjuring Coliseum to cheer on these brave warlocks."
+
+    scene black with dissolve
+
+    "The announcement rings through your ears like a dagger to the heart."
+    
+    scene bg arena with dissolve
+
+    "Sad and defeated you slowly make your way to the spectator seats unable to stop thinking about what could have been." 
+
+    "The sounds of the crowd cheering, sparks flying, and flames roaring fills you with a crushing feeling of melancholy, despite how engaging the battles are."
+    
+    scene black with dissolve
+    
+    "Oh well, maybe next year."
+
+    return
 
 """
 PETTING ZOO
@@ -430,27 +572,40 @@ label petting_zoo:
     
     maudlin "Tell me, new friend, what is it that you seek amongst these hallowed halls?"
 
+    m "I'm looking to join the Wizzowski Wizarding Open this year, but I don't have a partner, {i}yet.{/i}"
+
     menu:
-        "I seek honor and glory in the heat of battle. I'm entering the Wizzowski Wizarding Open, and when I've crushed all those who oppose me with my awesome and deadly magic, I will surely be victorious!":
+        m "I'm looking for someone who..."
+
+
+        "...seeks honor and glory in the heat of battle.":
+            m "When we've crushed all those who oppose us with our awesome and deadly magic, We will surely be victorious!"
             $ f_thisslewood -= 1
+            show maudlin negative
             maudlin "Hmph! Another violent brute with more muscles than brain cells, I see. Not to be rude, but I don't much care for bullies who think that might makes right."
 
-        "I'm seeking a wise and trustworthy wizarding companion so I can enter the Wizzowski Wizarding Open. If I and my teammate are to succeed, it will surely take all our combined wits.":
+        "...is a wise and trustworthy wizarding companion.":
+            m "If my teammate and I are to succeed, it will surely take all our combined wits."
             $ f_thisslewood += 1
+            show maudlin positive
             maudlin "A wise and prudent strategy! With wizardly cunning like that, I should hope to not be on the wrong end of your wand should our paths cross in the tournament."
 
     jump maudlin_scene_2
 
 label maudlin_scene_2:
+
+    show maudlin neutral
     
     "You hear Maudlin's jackelope, Barnabus, make a squeaking sound that instantly causes Maudlin's ears perk up."
     
     "He leans down to the critter and listens closely to it's sounds, then whispers something in it's ear before returning to face you."
 
-    show maudlin neutral
+    show maudlin positive
 
     maudlin "If you hope to succeed in the Open, you'll need a potent and effective companion. I believe that I, the magnanimous Maudlin, could be such a companion!"
     
+    show maudlin neutral
+
     maudlin "But first, I must of course make sure you meet MY very discerning requirements!"
 
     maudlin "I'm curious, [maudlin_given_name], what do you know of zoomancy?"
@@ -515,7 +670,7 @@ label maudlin_scene_2:
 
                 "I'm ... uh ... also allergic to having zoomancy spells cast on me...?":
                     show maudlin neutral
-                    maudlin "Ah, got the zoomancitis eh? By ex-wife had the same thing. Oh well, I guess no getting sniffed for you!"
+                    maudlin "Ah, got the zoomancitis eh? My ex-wife had the same thing. Oh well, I guess no getting sniffed for you!"
                     jump maudlin_scene_3
 
                 "'Danderbane'?? What kind of ridiculous spell is that? Forget it!":
@@ -631,7 +786,7 @@ label maudlin_scene_3:
                 maudlin "I see..."
                 maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help."
                 maudlin "I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect."
-                maudlin "If you want to find out how things went. Come and find me at the Rummaging Rat at Summoning Hour tomorrow!"
+                maudlin "If you want to find out how things went. Come and find me at the Rummaging Rat plaza at Summoning Hour tomorrow!"
                 jump maudlin_no_rescue
             "You can't just zap away the petting zoo! These creatures are the property of Wizzcon!":
                 $ f_thisslewood -= 1
@@ -639,7 +794,7 @@ label maudlin_scene_3:
                 maudlin "Keep your voice down you buffoon! If you don't care to take part then so be it, but I'll be quite upset if you ruin this for me."
                 maudlin "And how dare you refer to these noble beasts as property. They're living things!"
                 if f_thisslewood >= 0:
-                    maudlin "You might not be cut out to help me here, but if you still want to enter the Wizarding Open together, come and find me at the Rummaging Rat at Summoning Hour tomorrow. Now beat it!"
+                    maudlin "You might not be cut out to help me here, but if you still want to enter the Wizarding Open together, come and find me at the Rummaging Rat plaza at Summoning Hour tomorrow. Now beat it!"
                 else:
                     maudlin "Now get out of here before you spoil everything!"
                 jump maudlin_no_rescue
@@ -680,7 +835,7 @@ label maudlin_rescue:
 
     "As Maudlin cries out in victory, a loud bang and a bright flash fill the room, completely overwhelming you."
     "When you come to your senses, Maudlin, Barnabus, and all the petting zoo's inhabitants are gone. You find a note in your pocket that says..."
-    "{i}If you wish to find the same success in the tournament as we did with our fun little rescue mission, come find me at the park accross from the convention center tomorrow! - Maudlin Thisslewood{/i}"
+    "{i}If you wish to find the same success in the tournament as we did with our fun little rescue mission, come find me at the Rummaging Rat plaza outside the convention center tomorrow! - Maudlin Thisslewood{/i}"
 
     scene black with dissolve
     jump where_to_go
@@ -897,7 +1052,7 @@ label millicent_scene_3:
     show millicent
     
     m "... Fair enough."
-    m "You'll be able to find me at the Rummaging Rat at Summoning Hour tomorrow."
+    m "You'll be able to find me at the Rummaging Rat plaza at Summoning Hour tomorrow."
     "You don't wait for her response before turning around and walking away."
     
     play sound bg_noise volume 0.2 loop

@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 96: expected statement.
-    renpy.music.register_channel("bg_sounds_channel", sfx)
-                                                          ^
-
-File "game/script.rpy", line 97: expected statement.
-    renpy.music.register_channel("sfx", sfx)
-                                            ^
+File "game/script.rpy", line 324: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "{color="
+             ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Mon Dec  2 16:20:34 2024
+Sat Dec  7 00:01:23 2024
