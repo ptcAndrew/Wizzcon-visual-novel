@@ -249,7 +249,7 @@ label ending:
 
     scene black
 
-    "Having had your fill of the convention for one day, you retire to your quarters in the nearby Best Wizztern Inn"
+    "Having had your fill of the convention for one day, you retire to your quarters in the nearby Best Wizztern Inn."
 
     "As you nod off for the night, you start to reflect on your day..."
 
@@ -310,7 +310,7 @@ label ending:
             else:
                 jump millicent_bad_ending
         "Shadé Ravenstar":
-            "You're sitting patiently at onr of the Rummaging Rat's many public benches, keeping your eye on the crowd."
+            "You're sitting patiently at one of the Rummaging Rat's many public benches, keeping your eye on the crowd."
             "You're trying to catch a glimpse of Shadé. You hope he took you up on the invitation and will come be your partner."
             "It's getting close to the sign-up deadline and you're starting to lose hope."
             "You close your eyes and make a deep regretful sigh. You open them and Shadé is standing right in front of you."
@@ -346,10 +346,10 @@ label shade_good_ending:
     m "Are you sure? I can use a partner."
     "Shadé stares at you with that typical way that makes you want to squirm."
     "But why is he here if he's not planning on joining you?"
-    shade "..."
+    shade ". . ."
     shade "Alright."
     shade "But only because you impressed me yesterday."
-    m "You won't regret it."
+    m "You won't regret it!"
     shade "I wouldn't get your hopes up. I don't think we're going to win."
     m "No, no. I'm optimistic. This will be the year!"
     "You both head off to the sign up desk."
@@ -466,7 +466,7 @@ label maudlin_scene_2:
             show maudlin neutral
             maudlin "Well, uh... no, that's not quite it, but I appreciate your...creative interpretation of the name! It is, in fact, 'the school of magic that grants dominion over all of the feywilde beasts of our realm.'. Now you'll know better for our next first encounter!"
         
-        "Zoomancy is pitiful childsplay for the magically inept. Good for nothing except hanging out in dingey petting zoos":
+        "Zoomancy is pitiful childsplay for the magically inept. Good for nothing except hanging out in dingey petting zoos.":
             $ f_thisslewood -= 1
             show maudlin negative
             maudlin "WOW! That has to be one of the mostly outlandishly rude and antagonistic responses you could have possibly chosen! It's like you WANT me to dislike you!"
@@ -620,14 +620,14 @@ label maudlin_scene_3:
         maudlin "It's an affront to nature, and I intend to stop it!"
         show maudlin neutral    
         maudlin "I have a plan to rescue all these creatures, but I'll need your help. Could you distract the petting zoo staff momentarily?"
-        maudlin "I need time to perform the ritual for my ultiamte spell: 'Mass Beast Teleportation'!"
+        maudlin "I need time to perform the ritual for my ultimate spell: 'Mass Beast Teleportation'!"
         maudlin "With it, all of these creatures will be safely transported to the Thistlewood Beast and Critter Sanctuary, my family's nature preserve."
         maudlin "These petting zoo goons are in the midst of a shift change — the perfect time to strike!"
         menu:
             "Sure, I'll help you with your scheme! Let's save the animals!":
                 $ f_thisslewood += 3
                 jump maudlin_rescue
-            "Sorry Maudlin, I don't think I can get involved in this. But your secret plan is safe with me":
+            "Sorry Maudlin, I don't think I can get involved in this. But your secret plan is safe with me.":
                 maudlin "I see..."
                 maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help."
                 maudlin "I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect."
@@ -746,7 +746,7 @@ label no_millicent_challenge:
     m "Respectfully, my lady, I do not wish to end up crispy."
     millicent "Accept the challenge, coward."
     
-    "The handful of onlookers collectively ooooh, with one of them remarking, \“{i}You gonna let that stand?{/i}\”"
+    "The handful of onlookers collectively {i}ooooh{/i}, with one of them remarking, \“{i}You gonna let that stand?{/i}\”"
 
     "Crumbling under the weight of peer pressure, you hesitantly take up her challenge."
 
@@ -755,7 +755,7 @@ label no_millicent_challenge:
 label accept_millicent_challenge:
 
     show millicent at resetzoom
-    "The onlookers all collectively ooooh, and Millicent assesses you with an approving nod."
+    "The onlookers all collectively {i}ooooh{/i}, and Millicent assesses you with an approving nod."
 
     millicent "Prepare yourself, wizard! Let us see what you are made of."
     
@@ -782,7 +782,7 @@ label millicent_scene_2:
     millicent "I will enjoy peeling back all the layers till you are nothing and I have your warm guts in my hands!"
 
     menu:
-        "That is disgusting. {s}Please seek therapy. {/s}":
+        "That is disgusting. {s}Please seek therapy.{/s}":
             $ f_smolders -= 1
             $ disgusting = True 
             millicent "You are but a weakling. Your bloodline will die with you."
@@ -952,9 +952,9 @@ label artifacts:
 
     m "No, haven't had the pleasure yet. But I think you should go check out The Booth of How To Tell Better Lies."
 
-    shade "..."
+    shade ". . ."
 
-    m "..."
+    m ". . ."
     show shade
     shade "What do you want?"
 
@@ -964,7 +964,7 @@ label artifacts:
         
         "I should report you to the authorities.":
             $ f_ravenstar -= 1
-            shade "..."
+            shade ". . ."
             m "What you're doing...that's illegal. "
             show shade negative 
             "Shadé rolls their eyes."
@@ -1021,7 +1021,7 @@ label artifacts:
 label shade_scene2:
 
     show shade negative
-    shade "..."
+    shade ". . ."
     show shade
     shade "How much do you actually know about the School of Necromancy?"
 
@@ -1055,7 +1055,7 @@ label shade_scene2:
 
             show shade negative
             shade "So nothing. You know nothing. Actually less than nothing."
-            m "H-hey! {p}I know enough to know that you're selling illegal shit under the table!"
+            m "H-hey! {w}I know enough to know that you're selling illegal shit under the table!"
 
             shade "I'm not sure I trust you to tell one Necromancy scroll from another, to be honest."
             m "B-b-"
@@ -1073,28 +1073,29 @@ label shade_scene2:
 
 label shade_scene3:   
 
-    m "Fine. I don't know much. {p}But you are shady, Shadé Ravenstar. You have the vibes."
+    m "Fine. I don't know much. {w}But you are shady, Shadé Ravenstar. You have the vibes."
 
     shade "Don't you think you're being a little prejudiced?"
 
-    m "..."
+    m ". . ."
 
     shade "Necromancy is a respectable school of magic, you know. It's not all corpses and villainy."
 
     m "Uh-huh."
 
     show shade positive
-    shade "Well, it's all corpses and villainy to me."
+    shade "Well, it's all corpses and villainy to {i}me{/i}."
 
     m "See?! I knew it!"
 
     show shade
     shade "You don't do it for the fame and fortune it brings."
 
+    m ". . ."
     m "What {i}do{/i} you do it for?"
 
     if f_ravenstar >= 2:
-        shade "..."
+        shade ". . ."
 
         show shade positive
         shade "No one's asked me that before and was actually interested in the answer."
@@ -1129,7 +1130,7 @@ label shade_scene3:
 
     m "Maybe you just haven't found the right people to do it with yet."
 
-    shade "..."
+    shade ". . ."
 
     show shade
     shade "Right, okay."
@@ -1138,7 +1139,7 @@ label shade_scene3:
     shade "Get out of my booth."
 
     show shade
-    m "I'll be there tomorrow by the Rummaging Rat plaza at Summoning hour. If you feel like throwing off some of that nihilism, come join me. {p}And bring another Orb of Reanimate One Dead Dude."
+    m "I'll be there tomorrow by the Rummaging Rat plaza at Summoning hour. If you feel like throwing off some of that nihilism, come join me. {w}And bring another Orb of Reanimate One Dead Dude."
 
     if f_ravenstar >= 2:
 
@@ -1149,7 +1150,7 @@ label shade_scene3:
 
         shade "Ugh...fine,. you're right. But the one I {i}theoretically{/i} just sold was the only one I had."
 
-        m "..."
+        m ". . ."
         m "Liar."
 
     hide shade with dissolve
