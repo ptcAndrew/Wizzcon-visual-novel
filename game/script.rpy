@@ -455,6 +455,8 @@ label final_good_ending:
 
     "This is it."
 
+    scene bg arena
+
     "You and [chosen_partner] follow the attendant through an arched gate, and at the end of the tunnel you see the entrance to the arena."
 
     a "Good luck out there!"
@@ -496,6 +498,8 @@ label final_bad_ending:
     scene black with dissolve
 
     "The announcement rings through your ears like a dagger to the heart."
+    
+    scene bg arena with dissolve
 
     "Sad and defeated you slowly make your way to the spectator seats unable to stop thinking about what could have been." 
 
