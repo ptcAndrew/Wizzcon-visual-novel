@@ -103,7 +103,8 @@ init -1 python:
     #global values for the friendship with each character
 
     maudlin_given_name = "John Doe"
-    
+    plan_revealed = False
+    helped_maudlin = False
 
     f_thisslewood = 0
     f_smolders = 0
@@ -339,13 +340,33 @@ label ending:
     return
 
 label maudlin_good_ending:
-
+    show maudlin neutral with dissolve
     $ chosen_partner = "Maudlin"
+    if helped_maudlin:
+        maudlin "Ah, there's my accomplished accomplice!"
+        show maudlin positive
+        maudlin "I do so appreciate the aid you provided yesterday, my friend. Those animals will live a life of luxury now thanks to you!"
+        show maudlin neutral
+        maudlin "I can't in good concious let you go without aiding you in kind. Let us show those other wizards what a fine and dandy team we make!"
+    elif plan_revealed:
+        maudlin "Well hello again friend! I'm happy to report that my rescue mission was a moderate success! I appreciate your discretion in the matter."
+        maudlin "Despite your reluctance to aid me, and while it's not exactly my usual scene..."
+        show maudlin positive
+        maudlin "I feel compelled to aid you in your aspiration to win Wizzowski Wizarding Open. Let us join forces!"
+    else:
+        maudlin "What a delight to run into you again, [maudlin_given_name]! Come to try your luck in the open?"
+        show maudlin positive
+        maudlin "While we might not know eachother well, I can't help but have a good feeling about you. and Barnabus agrees!"
+        maudlin "I think this is the start of an auspicious friendship. Let us make it truly noteworthy by winning the Wizzowski Wizarding Open, together!"
     jump final_good_ending
 
 label maudlin_bad_ending:
-
-
+    show maudlin negative
+    maudlin "Well then, if it isn't [maudlin_given_name]! I had hoped to have seen the last of you yesterday"
+    maudlin "If it hadn't been for your tedious distraction, my all-important rescue mission might not have gone awry!"
+    maudlin "I have YOU to blame for those petting zoo animals not making it to my intended destination."
+    m "So I guess you wont be interested in joining me in the Wizzowski Wizarding open then?"
+    maudlin "Certainly not! You and your laughable ambitions are of no concern to me!"
 
     jump final_bad_ending
 
@@ -553,7 +574,7 @@ label petting_zoo:
 
     maudlin "And to whom do I have the pleasure of meeting on this beauteous day of wizzardly comradery!"
 
-    $ maudlin_given_name = renpy.input("What name will you give to Maudlin?")
+    $ maudlin_given_name = renpy.input("What is your name?")
     $ maudlin_given_name = maudlin_given_name.strip()
 
     show maudlin negative
@@ -780,13 +801,16 @@ label maudlin_scene_3:
         maudlin "These petting zoo goons are in the midst of a shift change — the perfect time to strike!"
         menu:
             "Sure, I'll help you with your scheme! Let's save the animals!":
-                $ f_thisslewood += 3
+                if f_thisslewood < 1:
+                    $ f_thisslewood = 1
+                else:
+                    $ f_thisslewood += 1
                 jump maudlin_rescue
             "Sorry Maudlin, I don't think I can get involved in this. But your secret plan is safe with me.":
                 maudlin "I see..."
-                maudlin "Well, I would be lying if I said I wan't disappointed, but I've still got to try, even without your help."
+                maudlin "Well, I would be lying if I said I wasn't disappointed, but I've still got to try, even without your help."
                 maudlin "I'd recommend getting out of here sooner than later, things could get pretty intense once my spell takes effect."
-                maudlin "If you want to find out how things went. Come and find me at the Rummaging Rat plaza at Summoning Hour tomorrow!"
+                maudlin "If you want to find out how things went, Come and find me at the Rummaging Rat plaza at Summoning Hour tomorrow!"
                 jump maudlin_no_rescue
             "You can't just zap away the petting zoo! These creatures are the property of Wizzcon!":
                 $ f_thisslewood -= 1
@@ -821,6 +845,7 @@ label maudlin_no_rescue:
     jump where_to_go
 
 label maudlin_rescue:
+    $ helped_maudlin = True
     show maudlin positive
     
     maudlin "Oh joyous day! Oh splendid tidings indeed! Barnabus was right about you, [maudlin_given_name]! Now then, go on and create a scene to distract these cursed beast jailers, and I will begin the ritual!"
