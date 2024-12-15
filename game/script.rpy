@@ -69,7 +69,24 @@ image millicent negative:
     ypos 1.3
     "millicent negative.png"
 
+image pippy:
+    #zoom 0.6
+    ypos 1.1
+    "pippy neutral.png"
+
+image pippy positive:
+    #zoom 0.7
+    ypos 1.1
+    "pippy positive.png"
+
+image pippy negative:
+    #zoom 0.7
+    ypos 1.1
+    "pippy negative.png"
+
 image white = "#FFFFFF"
+
+image bg plaza = "bg plaza.jpg"
 
 # Transform/transitions
 transform resetzoom:
@@ -90,6 +107,7 @@ define a = Character("Attendant", color="#3a6ad3", image="attendant")
 define maudlin = Character("Maudlin", color="#34eb77", image="maudlin")
 define shade = Character("Shadé", color="#6b357c", image="shade")
 define millicent = Character("Millicent", color="#810e06", image="millicent")
+define pippy = Character("Pippy", color="ec2c5d", image="pippy")
 define speaker = Character("Announcement", color="#82b2ff")
 
 # Audio definitions
@@ -105,6 +123,7 @@ init -1 python:
     maudlin_given_name = "John Doe"
     plan_revealed = False
     helped_maudlin = False
+    pippy_upset = False
 
     f_thisslewood = 0
     f_smolders = 0
@@ -137,15 +156,77 @@ label start:
 
     scene bg outside with dissolve
 
-    
-
     "While thoughts of exotic creatures, peculiar potions, and spectacular spells do excite you; you've come here for one specific reason..."
 
     "...to find a partner to compete with in the Wizzowski Wizarding Open."
 
     "At the conventions end, the fiercest duos duke it out in the name of wizarding glory, and that glory you {i}must{/i} achieve."
 
+    jump intro_pippy
+
+label intro_pippy:
+
+    show pippy positive with dissolve
+
+    pippy positive "I'm so excited! It's the first time I'm here!"
+
+    pippy neutral "We've been best friends for a year and you always talk about this. I'm happy I could come with you."
+
+    m "I'm telling you, I’m gonna get it this time! That glory will be mine!"
+
+    pippy positive "I never doubted you!"
+
+    pippy neutral "But you do need a partner for this thing."
+
+    m "This is what today is for. I will find my partner, and they will help me win!"
+
+    pippy ". . ."
+
+    pippy ". . . I could be your partner."
+
+    menu:
+
+        "*laugh* You? But you're so small! You'll seriously be out of your league here.":
+            
+            $ pippy_upset = True
+            jump pippy_not_happy
+
+        "Pippy, I love you, but you just started learning this year and you'll be up against crazy good wizards that have honed their craft for decades.":
+
+            jump pippy_happy
+
+label pippy_not_happy:
+
+    pippy negative ". . ."
+
+    m "I'm more likely to lose with you than without you. You'd just be a hindrance."
+
+    pippy negative "I was kidding anyways. I'm not delusional, I know I'm not good enough yet."
+
+    m "Maybe next year, then, okay?"
+
+    "Pippy nods stiffly and trails behind you."
+
+    hide pippy with dissolve
+
     jump inside
+
+label pippy_happy:
+
+    pippy neutral "Good thing I was kidding then! Could you imagine? I'm so not ready, it looks so scary."
+
+    pippy "But I'll be cheering you on!"
+
+    m "And I'm really grateful for your support! I can always count on you to be there."
+
+    m "You're a really great friend to have and I'm glad I met you."
+
+    pippy positive "Me too! I'm really excited for you. Let's go!"
+
+    hide pippy with dissolve
+    
+    jump inside
+
 
 label inside:
 
@@ -185,7 +266,7 @@ label dialogue1:
 
     hide attendant with dissolve
 
-    jump where_to_go
+    jump check_in_with_pip
 
 label dialogue2:
 
@@ -204,6 +285,44 @@ label dialogue2:
     a positive "Well, make sure to take a brochure. I hope you enjoy your time at Wizzcon!"
 
     hide attendant with dissolve
+
+    jump check_in_with_pip
+
+label check_in_with_pip:
+
+    "Pippy is scanning the place with big eyes, broshure clutched in her hand."
+
+    if pippy_upset:
+
+        show pippy negative with dissolve
+
+        pippy "Alight then, good luck with the hunt. I'm gonna go get bubbling tea and wander around. {w}See you tomorrow."
+
+        m "Have fun!"
+
+        "She gives you a half-hearted wave as she disappers in the crowd."
+
+    else:
+
+        
+
+        show pippy positive with dissolve
+
+        pippy "Wooooowwww, there's so much here to see! I'm so excited!"
+
+        m "You gonna wander off?"
+
+        pippy "Yup! And get bubbling tea . . ."
+
+        "She checks the broshure, scrunching her brow."
+
+        pippy neutral "It's gotta be here somewhe— Yup! Ok! I'm off! Have fun!"
+
+        m "See you tomorrow!"
+
+        "She waves back as she runs away into the crowd."
+
+    hide pippy with dissolve
 
     jump where_to_go
 
@@ -245,7 +364,7 @@ label where_to_go:
 
     elif locations_visited == 3:
 
-        jump dream
+        jump second_day
 
 """
 ENDING
@@ -288,17 +407,206 @@ label dream:
     
     jump ending
 
-label ending:
+label second_day:
+
+    scene black
+
+    "Having had your fill of the convention for one day, you retire to your quarters in the nearby Best Wizztern Inn."
+
+    "You tuck in for the night, taking the time to reflect on all the interesting people you've met, and promptly falling asleep."
+
+    "You wake up to the morning sun peaking through your window. It is the day of the Wizzowski Wizarding Open and you would like to get Pippy's opinion on who she thinks you should partner with."
+
+    "You can always trust her judgement."
+
+    "You dress and make your way over to the Rummaging Rat plaza."
+
+    scene bg plaza with dissolve
+
+    "You spy Pippy chilling in the shade of a big tree with a massive drink in hand."
+
+    if pippy_upset:
+
+        show pippy negative with dissolve
+
+        m "You're not still sulking about yesterday are you?"
+
+        pippy "I'm not sulking."
+
+        "She takes a long pull from her drink's straw."
+
+        m "Okay good! Because I need your help!"
+
+        pippy neutral "Did you find your partner?"
+
+        m "See, that's the thing, I'd like your advice!"
+
+        "Pippy takes another long pull of her drink."
+
+        pippy "Alright. Let's hear it."
+
+        "You recount your previous day's escapades while she listens patiently."
+
+        m "Sooooo, what do you think?"
+
+        "Pippy swirls her straw along the bottom of her drink. She seems dour and moody."
     
-    "You see the morning sun peaking through your window. It is the day of the Wizzowski Wizarding Open, and it's time for you to recruit your partner."
+        if f_thisslewood > f_smolders and f_thisslewood > f_ravenstar:
+            # best result is maudlin
+            pippy "Maudlin sounds like a bad choice. He clearly doesn't follow any rules but his own." 
+            
+            pippy negative "I don't think you'd like someone unpredictable like that as a partner."
 
-    scene bg outside with dissolve
+            if f_smolders > f_ravenstar:
 
-    "You arrive to the Wizzcon grounds just in time to hear an annoucement boom across the convention center."
+                pippy neutral "I think you might've best hit it off with Shadé, honestly. I'm sure they'll be a joy to partner with."
+
+            else:
+
+                pippy neutral "But Millicent sure sounds powerful enough to achieve victory. Tho you should be careful she doesn't eat you."
+
+        elif f_smolders > f_thisslewood and f_smolders > f_ravenstar:
+            # best result is millicent
+
+            pippy "I'm not sure I like Millicent's attitude to be honest. She seems like the type that would wouldn't play nice in a duo."
+
+            pippy negative "She's too violent and unpredictable, and you might get trampled under her while she's in battle rage."
+
+            if f_thisslewood > f_ravenstar:
+
+                pippy neutral "Shadé sure sounded {i}fun{/i} tho."
+            
+            else:
+
+                pippy neutral "Now the gnome seems the most reliable. I don't think you could go wrong asking him for help."
+
+        elif f_ravenstar > f_thisslewood and f_ravenstar > f_smolders:
+            # best result is shade
+
+            pippy "You are so right! That elf Shadé sure sounds like a shifty creature."
+
+            pippy negative "They sounds ready to leave you for dead and then not bring you back. I wouldn't trust them."
+
+            if f_thisslewood > f_smolders:
+
+                pippy neutral "Now the Dragonborn Millicent, she wears her emotions on her sleeve, I think she's someone you'd be able to trust."
+
+            else:
+
+                pippy neutral "Now Maudlin had a wonderful attitude, he really wasn't shy about accomplishing his goals. I think he would help you best!"
+        else:
+            # there was a tie
+
+            pippy neutral "Oh. {w}They all sound like they could work . . ."
+
+            pippy neutral "I think you should trust your judgement on this."
+
+            pippy positive "Any one of them would make a wonderful candidate, I'm sure."
+
+        m "I don't know, Pip . . ."
+
+        m "This is such a hard decision, I don't want to pick wrong."
+
+        m "I really need to win it this year!"
+
+        pippy neutral "I'm sure you'll do worderfully."
+
+        hide pippy with dissolve
+
+        jump ending
+
+    else:
+
+        show pippy positive with dissolve
+
+        pippy "Hi! Sleep well? Ready for this?"
+
+        m "A little nervous now that it's happening, but optimistic."
+
+        "She offers you a sip of her drink which you gracefully accept."
+
+        pippy "Sooooo! Tell me about it! How did it go with all the potential candidates yesterday?"
+
+        show pippy neutral with dissolve
+
+        "You recount your previous day's escapades while she listnes patiently."
+
+        pippy neutral "Oh boy, you met quite the cast of characters, huh."
+
+        "She takes a moment to think over her answer."
+
+        if f_thisslewood > f_smolders and f_thisslewood > f_ravenstar:
+            # best result is maudlin
+
+            pippy neutral "Maudlin is the obvious choice. He can summon beasts of all shapes and sizes to help you out in your fight."
+
+            pippy "With his graceful movements and fabulous accuracy, nothing would be able to stand in your way."
+
+            pippy positive "You, him, and your mighty menagerie will certainly overwhelm the opponents!" 
+
+        elif f_smolders > f_thisslewood and f_smolders > f_ravenstar:
+            # best result is millicent
+
+            pippy neutral "Millicent is the obvious choice. She's so strong and fierce and you clearly impressed her."
+
+            pippy "She'll just whip her wings and snap her fingers and engulf you in a fiery vortex on all sides."
+
+            pippy positive "And bam. You'll win."
+
+        elif f_ravenstar > f_thisslewood and f_ravenstar > f_smolders:
+            # best result is shade
+
+            pippy neutral "Shadé is the obvious choice. Their  necromatic abilities sound like they'll really help you in the battle."
+
+            pippy "They'll suck the life spirit from your oponents and weaken their resolve."
+
+            pippy positive "And then you'll go in with the finishing blow!"
+
+        else:
+            # there was a tie
+
+            if f_thisslewood == f_smolders:
+
+                pippy "Oh! I think either Maudlin or Millicent would make for a good partner."
+
+            if f_smolders == f_ravenstar:
+                
+                pippy "Oh! I think either Shadé or Millicent would make for a good partner."
+
+            if f_ravenstar == f_thisslewood:
+
+                pippy "Oh! I think either Maudlin or Shadé would make for a good partner."
+
+            pippy positive "I think they both liked you enough that they'll help you win this year!"
+
+        m "Thanks, Pip. I knew you'd have intelligent things to say about it. I can always trust your judgement!"
+
+        pippy positive "You know it! You can always rely on me to give you the best advice! I won't lead you astray."
+
+        hide pippy with dissolve
+        
+        jump ending
+
+
+label ending:
+
+    scene bg plaza with dissolve
+
+    "Pippy finishes giving her advice just in time to hear an annoucement boom across the convention center."
 
     speaker "Greeting witches and wizards alike! I hope everyone’s been having a magical time!" 
     speaker "It’s almost time for our main event, {p}{size=+20}the Wizzowski Wizarding Open!{/size}"
     speaker "Signups close soon, so be sure to come drop by right away!"
+
+    show pippy neutral with dissolve
+
+    pippy "That's my cue! I'm gonna head in to the arena and find a spot."
+
+    pippy "Good luck!"
+
+    hide pippy with dissolve
+
+    scebe black
 
     m "{i}There's only time to seek out one potential partner before the signups close. I'll have to choose carefully.{/i}"
 
@@ -308,7 +616,8 @@ label ending:
         "{i}Who should I choose as my partner...?{/i}"
 
         "{color=#34eb77}Maudlin Thistlewood{/color}":
-            "You head to the Rummaging Rat Plaza in search of Maudlin."
+            scene bg plaza with dissolve
+            "You search the Rummaging Rat Plaza for Maudlin."
             "Tracking him down isn't easy, considering both his short stature and his need to lay low after the petting zoo incident yesterday."
             "Luckily, you spot him sitting up in a tree on the outskirts of the plaza sharing an Apple with Barnabus."
             if f_thisslewood > 0:
@@ -316,20 +625,22 @@ label ending:
             else:
                 jump maudlin_bad_ending
         "{color=#810e06}Millicent Smolders{/color}":
-            "You are chilling at one of the Rummaging Rat's many public benches when Millicent stalks towards you."
+            scene bg plaza with dissolve
+            "You barely get a chance to scan the Rummaging Rat plaza when you catch Millicent stalking towards you."
             "{i}Well, hey. She saved you the effort of trying to find her.{/i}"
             if f_smolders > 0:
                 jump millicent_good_ending
             else:
                 jump millicent_bad_ending
         "{color=#6b357c}Shadé Ravenstar{/color}":
-            "You're sitting patiently at one of the Rummaging Rat's many public benches, keeping your eye on the crowd."
+            scene bg plaza with dissolve
+            "You're patiently scanning the crowd from Rummaging Rat's many public benches."
             "You're trying to catch a glimpse of Shadé. You hope they took you up on the invitation and will come be your partner."
             "It's getting close to the sign-up deadline and you're starting to lose hope."
             "You close your eyes and make a deep regretful sigh."
             scene black with dissolve
             $ renpy.pause(2.0)
-            scene bg outside with dissolve
+            scene bg plaza with dissolve
             show shade with dissolve
             "You open them and Shadé is standing right in front of you."
             if f_ravenstar > 0:
@@ -411,10 +722,8 @@ label shade_good_ending:
     m "No, no. I'm optimistic. This will be the year!"
     "You both head off to the sign up desk."
 
-
     $ chosen_partner = "Shadé"
     jump final_good_ending
-
 
 label shade_bad_ending:
 
@@ -503,14 +812,17 @@ label final_good_ending:
 
 label final_bad_ending:
 
-    "{i}I- i just blew it.{/i}"
+    "{i}I- I just blew it.{/i}"
 
     "{i}Surely there's still time to find someone else...{/i}"
 
     scene bg inside
 
     "Heading inside the convention center, you desperately ask any wizards who pass by."
+
     "Unfortunately, all of them either already have a partner or are simply not interested."
+
+    "You know that Pippy might agree out of pity but she really {i}is{/i} just starting out and wont be any help."
 
     "Your hopes draining by the second, you suddenly hear a voice echo through the convention hall."
 
@@ -522,7 +834,9 @@ label final_bad_ending:
     
     scene bg arena with dissolve
 
-    "Sad and defeated you slowly make your way to the spectator seats unable to stop thinking about what could have been." 
+    "Sad and defeated you slowly make your way to the spectator seats unable to stop thinking about what could have been."
+
+    "You find Pippy and sit beside her. She spends the whole time sneaking pitying glances at you."
 
     "The sounds of the crowd cheering, sparks flying, and flames roaring fills you with a crushing feeling of melancholy, despite how engaging the battles are."
     
@@ -540,14 +854,14 @@ MAUDLIN THISTLEWOOD ARC
 
 label petting_zoo:
     
-    scene black with dissolve
+    scene bg inside with dissolve
     
     "You make your way towards the petting zoo. As you walk through the convention center, you spot a merry band of wiz-bards performing a jaunty tune."
     
     "These magical musicians are the source of the music you've been hearing since you entered the convention. The bards' magic lets their music extend to every room in the convention center."
 
     "You are soon distracted from the music as the familiarily pungent odor of domesticated animals starts to fill your nose. The petting zoo must be near."
-    
+
     scene petting zoo with dissolve
 
     "You find the petting zoo, and catch glimpses of a variety of fantastical, if somewhat harmless, beasts and critters. There are more shapes, sizes and colors of them than you've ever seen."
@@ -1076,7 +1390,7 @@ label millicent_scene_3:
     
     show millicent
     
-    m "... Fair enough."
+    m ". . . {w}Fair enough."
     m "You'll be able to find me at the Rummaging Rat plaza at Summoning Hour tomorrow."
     "You don't wait for her response before turning around and walking away."
     

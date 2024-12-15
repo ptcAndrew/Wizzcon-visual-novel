@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 324: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "{color="
-             ^
+File "game/script.rpy", line 408: else clause expects a non-empty block.
+    else:
+         ^
 
-Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Dec  7 00:01:23 2024
+Ren'Py Version: Ren'Py 8.3.3.24111502
+Sat Dec 14 20:07:25 2024
